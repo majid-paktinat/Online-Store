@@ -49,7 +49,7 @@ I have created a burger logger with MySQL, Node, Express, Handlebars and a homem
 
 2. Make a package.json file by running `npm init` from the command line.
 
-3. Install the Express npm package: `npm install express`, `npm install mysql`, `npm install express-handlebars`, `npm install dotenv` and `npm install path`  
+3. Install the Express npm package: `npm install express`, `npm install mysql`, `npm install express-handlebars`, `npm install dotenv`, `npm install bcryptjs` and `npm install path`  
 
 4. Create a server.js file.
 
