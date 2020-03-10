@@ -34,7 +34,7 @@ Use this [project presentation template](https://docs.google.com/presentation/d/
 * Directions for Future Development
 
 
-## -----------------------------------------------------------------------------------------------
+## ------------------------------------------------------------------------------------------
 
 # Node-Express-Handlebars
 
