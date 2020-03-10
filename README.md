@@ -43,15 +43,18 @@ Use this [project presentation template](https://docs.google.com/presentation/d/
 I have created a burger logger with MySQL, Node, Express, Handlebars and a homemade ORM (yum!), by following the MVC design pattern and used Node and MySQL to query and route data in the app, and Handlebars to generate the HTML.
 
 
-### Before Begin:
+#### App Setup
 
-* Eat-Da-Burger! is a restaurant app that lets users input the names of burgers they'd like to eat.
+1. Create a GitHub repo called `online-store` and clone it to your computer.
 
-* Whenever a user submits a burger's name, your app will display the burger on the left side of the page.
+2. Make a package.json file by running `npm init` from the command line.
 
-* Each burger in the waiting area also has a `Devour it!` button. When the user clicks it, the burger will move to the right side of the page.
+3. Install the Express npm package: `npm install express`, `npm install mysql`, `npm install express-handlebars`, `npm install dotenv`, `npm install bcryptjs` and `npm install path`  
 
-* Your app will store every burger in a database, whether devoured or not.
+4. Create a server.js file.
+
+7. Require the following npm packages inside of the server.js file:
+   * express
 
 
 #### Config Setup
@@ -80,6 +83,11 @@ I have created a burger logger with MySQL, Node, Express, Handlebars and a homem
      * `updateProduct()`
      * `deleteProduct()`
 
+     * `selectAllCategories()`
+     * `insertCategory()`
+     * `updateCategory()`
+     * `deleteCategory()`
+
      * `selectAllOrders()`
      * `insertOrder()`
      * `updateOrder()`
@@ -101,6 +109,11 @@ I have created a burger logger with MySQL, Node, Express, Handlebars and a homem
     * Also inside `product.js`, create the code that will call the ORM functions using user specific input for the ORM.
     * Export at the end of the `product.js` file.
 
+  * In `models`, make a `category.js` file.
+    * Inside `category.js`, import `orm.js` into `product.js`
+    * Also inside `category.js`, create the code that will call the ORM functions using user specific input for the ORM.
+    * Export at the end of the `category.js` file.
+
   * In `models`, make a `order.js` file.
     * Inside `order.js`, import `orm.js` into `order.js`
     * Also inside `order.js`, create the code that will call the ORM functions using user specific input for the ORM.
@@ -111,9 +124,9 @@ I have created a burger logger with MySQL, Node, Express, Handlebars and a homem
 
 1. Inside the project:`online-store` directory, create a folder named `controllers`.
 
-2. In `controllers`, create `users_controller.js`, `products_controller.js` and `orders_controller.js`  files.
+2. In `controllers`, create `users_controller.js`, `products_controller.js`, `categories_controller.js` and `orders_controller.js`  files.
 
-3. Inside the `<...>_controller.js` files, import Express package as well as respective `<...>.js` which is created in (Model Step)
+3. Inside the `<...>_controller.js` files, import Express package as well as respective `<...>.js` which is created in (models)
 
 4. Create the `router` for the app, and export the `router` at the end of your controller files.
 
@@ -146,6 +159,7 @@ All the recommended files and directories from the steps above should look like 
 ├── controllers
 │   └── users_controller.js
 │   └── products_controller.js
+│   └── categories_controller.js
 │   └── orders_controller.js
 │
 ├── db
@@ -155,7 +169,8 @@ All the recommended files and directories from the steps above should look like 
 ├── models
 │   └── user.js
 │   └── product.js
-│   └── user.js
+│   └── category.js
+│   └── order.js
 │
 ├── node_modules
 │ 
@@ -164,9 +179,16 @@ All the recommended files and directories from the steps above should look like 
 ├── public
 │   └── assets
 │       ├── css
-│       │   └── burger_style.css
+│       │    └── user_style.css
+│       │    └── product_style.css
+│       │    └── category_style.css
+│       │    └── order_style.css
+│       │
 │       └── img
-│           └── burger.png
+│           └── user.png
+│           └── product.png
+│           └── categoty.png
+│           └── order.png
 │
 ├── server.js
 │
