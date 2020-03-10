@@ -126,7 +126,7 @@ I have created a burger logger with MySQL, Node, Express, Handlebars and a homem
 
 2. In `controllers`, create `users_controller.js`, `products_controller.js`, `categories_controller.js` and `orders_controller.js`  files.
 
-3. Inside the `<...>_controller.js` files, import Express package as well as respective `<...>.js` which is created in (Model Step)
+3. Inside the `<...>_controller.js` files, import Express package as well as respective `<...>.js` which is created in (models)
 
 4. Create the `router` for the app, and export the `router` at the end of your controller files.
 

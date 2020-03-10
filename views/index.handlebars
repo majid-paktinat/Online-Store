@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/assets/css/user_style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
+
+  <title>Online-Store!</title>
+</head>
+<body>
+
+<div class="container" style="border:solid 0px;"> 
+  <div class="row">
+    <div class="col-12 text-center">
+      &nbsp; <!--style="border:solid 1px; padding-bottom: 50;"-->
+      index.handlebars!
+    </div>
+  </div>
+ 
+  <div class="row">
+    <div class="col-12 text-center" style="border:solid 0px; padding-bottom: 50;">
+      <form class="create-form">
+        <div class="form-group">
+          <label for="userid">User ID Name:</label>&nbsp;<input type="text" id="userid" name="user_id">
+          <label for="userpass">User Password:</label>&nbsp;<input type="password" id="userpass" name="user_password">
+          <label for="userfname">User First Name:</label>&nbsp;<input type="text" id="userfname" name="user_first_name">
+          <label for="userlname">User Last Name:</label>&nbsp;<input type="text" id="userlname" name="last_name">
+          <label for="userrole">User Role :</label>&nbsp;<input type="text" id="userrole" name="user_role">
+          <label for="useremail">User Email :</label>&nbsp;<input type="text" id="useremail" name="user_email">
+           <!--button type="submit" class="btn btn-success btn-sm" style="padding-top: 0;">Add Burger</button-->
+           <button type="submit" class="btn btn-secondary btn-sm" data-id="{{this.id}}">Add TEST user !</button>
+
+        </div>
+      </form>
+      <hr>
+    </div>
+  </div>
+
+
+</div>
+</body>
+</html>
+
+
+
+
