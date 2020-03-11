@@ -6,19 +6,18 @@ const router = express.Router();
 const user = require("../models/user.js");
 
 // Create all our routes and set up logic within those routes where required.
-router.get("/", function(req, res) {
+router.get("/api/users", function(req, res) {
   user.selectAllUsers(function(data) {
     var hbsObject = {
       users: data
     };
-    console.log(hbsObject);
     res.render("index", hbsObject);
   });
 });
 
 router.post("/api/users", function(req, res) {
   user.insertUser(req.body.userid, req.body.userpassword, req.body.userfname, req.body.userlname, req.body.userrole, req.body.useremail, req.body.userphone, req.body.useraddress, function(result) {
-    res.json({ id: result });// Send back the ID of the new user
+    res.json({ id: result.insertId });// Send back the ID of the new user
   });
 });
 
