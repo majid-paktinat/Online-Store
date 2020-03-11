@@ -1,5 +1,5 @@
 // Import the ORM to create functions that will interact with the database.
-const ormUser = require("../config/orm.js");
+const {ormUser} = require("../config/orm.js");
 
 var user = {
     selectAllUsers: function(callback) {
@@ -20,7 +20,7 @@ var user = {
     },
     deleteUser: function(userid, callback) {
       ormUser.deleteUser(userid, function(result) {
-        callback(result);
+        callback(result); 
       });
     }
   };
