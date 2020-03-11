@@ -5,22 +5,21 @@ $(function() {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
 
-    var newUser = {
-      userid: $("#userid").val().trim(),
-      userpassword: $("#userpass").val().trim(),
-      userfname: $("#userfname").val().trim(),
-      userlname: $("#userlname").val().trim(),
-      userrole: $("#userrole").val().trim(),
-      useremail: $("#useremail").val().trim()
+    var newOrder = {
+      userid: $("#orderuserid").val().trim(),
+      productid: $("#productid").val().trim(),
+      productquantity: $("#productquantity").val().trim()
     };
 
+    console.log(newOrder);
+
     // Send the POST request.
-    $.ajax("/api/users", {
+    $.ajax("/api/orders", {
       type: "POST",
-      data: newUser
+      data: newOrder
     }).then(
       function() {
-        console.log("New User created!");
+        console.log("New Order created!");
         location.reload(); // Reload the page to get the updated list
       }
     );
