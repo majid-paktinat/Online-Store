@@ -34,22 +34,13 @@ Use this [project presentation template](https://docs.google.com/presentation/d/
 * Directions for Future Development
 
 
-## ------------------------------------------------------------------------------------------
-
-# Node-Express-Handlebars
-
-### Overview
-
-I have created a burger logger with MySQL, Node, Express, Handlebars and a homemade ORM (yum!), by following the MVC design pattern and used Node and MySQL to query and route data in the app, and Handlebars to generate the HTML.
-
-
 #### App Setup
 
 1. Create a GitHub repo called `online-store` and clone it to your computer.
 
 2. Make a package.json file by running `npm init` from the command line.
 
-3. Install the Express npm package: `npm install express`, `npm install mysql`, `npm install express-handlebars`, `npm install dotenv` and `npm install path`  
+3. Install the Express npm package: `npm install express`, `npm install mysql`, `npm install express-handlebars`, `npm install dotenv`, `npm install bcryptjs` and `npm install path`  
 
 4. Create a server.js file.
 
@@ -126,9 +117,10 @@ I have created a burger logger with MySQL, Node, Express, Handlebars and a homem
 
 2. In `controllers`, create `users_controller.js`, `products_controller.js`, `categories_controller.js` and `orders_controller.js`  files.
 
-3. Inside the `<...>_controller.js` files, import Express package as well as respective `<...>.js` which is created in (Model Step)
+3. Inside the `<...>_controller.js` files, import Express package as well as respective `<...>.js` which is created in (models)
 
 4. Create the `router` for the app, and export the `router` at the end of your controller files.
+
 
 #### View setup
 
