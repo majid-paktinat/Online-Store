@@ -1,8 +1,9 @@
 const express = require("express");
 
+const util = require("../lib/util");      
+
 const router = express.Router();
 
-// Import the model (cat.js) to use its database functions.
 const user = require("../models/user.js");
 
 // Create all our routes and set up logic within those routes where required.
@@ -11,12 +12,13 @@ router.get("/api/users", function(req, res) {
     var hbsObject = {
       users: data
     };
+    //res.json(data);
     res.render("index", hbsObject);
   });
 });
 
 router.post("/api/users", function(req, res) {
-  user.insertUser(req.body.userid, req.body.userpassword, req.body.userfname, req.body.userlname, req.body.userrole, req.body.useremail, req.body.userphone, req.body.useraddress, function(result) {
+  user.insertUser(req.body.userid, util.passHash(req.body.userpassword), req.body.userfname, req.body.userlname, req.body.userrole, req.body.useremail, req.body.userphone, req.body.useraddress, function(result) {
     res.json({ id: result.insertId });// Send back the ID of the new user
   });
 });

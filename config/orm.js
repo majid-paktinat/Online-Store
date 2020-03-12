@@ -34,7 +34,7 @@ var ormUser = {
   // Again, we make use of the callback to grab a specific character from the database.
   updateUser: function(userid, userfname, userlname, useremail, userphone, useraddress, callback) { 
     var s = "UPDATE " + this.tableName + " SET userfname = ?, userlname = ?, useremail = ?, userphone = ?, useraddress = ?  WHERE userid = ?";
-    connection.query(s, [userid, userfname, userlname, useremail, userphone, useraddress], function(err, result) {
+    connection.query(s, [userfname, userlname, useremail, userphone, useraddress, userid], function(err, result) {
       callback(result);
     });
   },
@@ -42,8 +42,7 @@ var ormUser = {
   // Here our ORM is creating a simple method to execute the necessary MySQL commands in the controllers,
   // Again, we make use of the callback to grab a specific character from the database.
   deleteUser: function(userid, callback) { 
-    var s = "DELETE " + this.tableName + " where userid = ?";
-
+    var s = "DELETE FROM " + this.tableName + " where userid = ?";
     connection.query(s, [userid], function(err, result) {
       callback(result);
     });
@@ -85,7 +84,7 @@ var ormOrder = {
   // Here our ORM is creating a simple method to execute the necessary MySQL commands in the controllers,
   // Again, we make use of the callback to grab a specific character from the database.
   deleteOrder: function(orderid, callback) { 
-    var s = "DELETE " + this.tableName + " where userid = ?";
+    var s = "DELETE FROM " + this.tableName + " where id = ?";
     connection.query(s, [orderid], function(err, result) {
       callback(result);
     });

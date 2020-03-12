@@ -11,7 +11,8 @@ router.get("/api/orders", function(req, res) {
     var hbsObject = {
       orders: data
     };
-    res.render("index", hbsObject);
+    res.json(data);
+    //res.render("index", hbsObject);
   });
 });
 
@@ -25,8 +26,7 @@ router.put("/api/orders/update/:orderid", function(req, res) {
   const orderid = req.params.orderid;
   console.log("OrderID for <update> is equal to : ", orderid);
   
-  order.updateOrder(orderid, req.body.userid, req.body.productid, 
-    req.body.productquantity, function(result) {
+  order.updateOrder(orderid, req.body.userid, req.body.productid, req.body.productquantity, function(result) {
     if (result.changedRows == 0) {
       return res.status(404).end(); // If no rows were changed, then the ID must not exist, so 404
     } else {
