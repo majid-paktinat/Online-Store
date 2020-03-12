@@ -20,9 +20,13 @@ app.set("view engine", "handlebars");
 // Import routes and give the server access to them.
 var userRoutes = require("./controllers/users_controller.js");
 var orderRoutes = require("./controllers/orders_controller.js");
+var categoryRoutes = require("./controllers/categories_controller.js");
+var productRoutes = require("./controllers/products_controller.js");
 
 app.use(userRoutes);
 app.use(orderRoutes);
+app.use(categoryRoutes);
+app.use(productRoutes);
 
 
 // Start our server so that it can begin listening to client requests.

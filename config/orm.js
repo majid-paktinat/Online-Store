@@ -92,9 +92,97 @@ var ormOrder = {
   
 };
 
+var ormCategory = {
+  tableName : "categories",
+
+  // Here our ORM is creating a simple method for performing a query of the entire table.
+  // We make use of the callback to ensure that data is returned only once the query is done.
+  selectAllCategories: function(callback) {
+    var s = "SELECT * FROM " + this.tableName;
+
+    connection.query(s, function(err, result) {
+      callback(result);
+    });
+  },
+
+  // Here our ORM is creating a simple method to execute the necessary MySQL commands in the controllers,
+  // Again, we make use of the callback to grab a specific character from the database.
+  insertCategory: function(categoryname, callback) {
+    var s = "INSERT INTO " + this.tableName + "(categoryname) VALUES(?)";
+    connection.query(s, [categoryname], function(err, result) {
+      callback(result);
+    });
+  },
+
+  // Here our ORM is creating a simple method to execute the necessary MySQL commands in the controllers,
+  // Again, we make use of the callback to grab a specific character from the database.
+  updateCategory: function(id,categoryname, callback) { 
+    var s = "UPDATE " + this.tableName + " SET categoryname = ? WHERE id = ?";
+    connection.query(s, [categoryname, id], function(err, result) {
+      callback(result);
+    });
+  },
+
+  // Here our ORM is creating a simple method to execute the necessary MySQL commands in the controllers,
+  // Again, we make use of the callback to grab a specific character from the database.
+  deleteCategory: function(id, callback) { 
+    var s = "DELETE " + this.tableName + " where id = ?";
+
+    connection.query(s, [id], function(err, result) {
+      callback(result);
+    });
+  }
+  
+};
+
+var ormProduct = {
+  tableName : "products",
+
+  // Here our ORM is creating a simple method for performing a query of the entire table.
+  // We make use of the callback to ensure that data is returned only once the query is done.
+  selectAllProducts: function(callback) {
+    var s = "SELECT * FROM " + this.tableName;
+
+    connection.query(s, function(err, result) {
+      callback(result);
+    });
+  },
+
+  // Here our ORM is creating a simple method to execute the necessary MySQL commands in the controllers,
+  // Again, we make use of the callback to grab a specific character from the database.
+  insertProduct: function(categoryid, productname, productdescription, productimage, productprice, callback) {
+    var s = "INSERT INTO " + this.tableName + "(categoryid, productname, productdescription, productimage, productprice) VALUES(?, ?, ?, ?, ?)";
+    connection.query(s, [categoryid, productname, productdescription, productimage, productprice], function(err, result) {
+      callback(result);
+    });
+  },
+
+  // Here our ORM is creating a simple method to execute the necessary MySQL commands in the controllers,
+  // Again, we make use of the callback to grab a specific character from the database.
+  updateProduct: function(id, categoryid, productname, productdescription, productimage, productprice, callback) { 
+    var s = "UPDATE " + this.tableName + " SET categoryid = ?, productname = ?, productdescription = ?, productimage = ?, productprice = ?  WHERE id = ?";
+    connection.query(s, [id, categoryid, productname, productdescription, productimage, productprice], function(err, result) {
+      callback(result);
+    });
+  },
+
+  // Here our ORM is creating a simple method to execute the necessary MySQL commands in the controllers,
+  // Again, we make use of the callback to grab a specific character from the database.
+  deleteProduct: function(id, callback) { 
+    var s = "DELETE " + this.tableName + " where id = ?";
+
+    connection.query(s, [id], function(err, result) {
+      callback(result);
+    });
+  }
+  
+};
+
 
 module.exports = {
   ormUser,
-  ormOrder
+  ormOrder,
+  ormCategory,
+  ormProduct
 }  
 
