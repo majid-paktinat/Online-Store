@@ -7,6 +7,11 @@ var user = {
         callback(result);
       });
     },
+    selectUser: function(userid, userpassword, callback) {
+      ormUser.selectUser(userid, userpassword, function(result) {
+        callback(result);
+      });
+    },
     // The variables cols and vals are arrays..
     insertUser: function(userid, userpassword, userfname, userlname, userrole, useremail, userphone, useraddress, callback) {
       ormUser.insertUser(userid, userpassword, userfname, userlname, userrole, useremail, userphone, useraddress, function(result) {

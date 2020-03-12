@@ -49,5 +49,18 @@ router.delete("/api/users/delete/:userid", function(req, res) {
   });
 });
 
+// 
+router.post("/api/login", function(req, res) {
+  //console.log(req);
+  user.selectUser(req.body.userid, req.body.userpassword, function(data) {
+    var hbsObject = {
+      userLogin: data
+    };
+    //console.log(data);
+    res.json(data);
+    //res.render("index", hbsObject);
+  });
+});
+
 // Export routes for server.js to use.
 module.exports = router;

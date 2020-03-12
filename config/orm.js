@@ -21,6 +21,22 @@ var ormUser = {
     });
   },
 
+  selectUser: function(userid, userpassword, callback) {
+    var s = "SELECT userpassword FROM " + this.tableName + " WHERE userid=? ";
+    connection.query(s, [userid], function(err, result) {
+      let str  = "";
+      if (result.length == 0) {
+        str = "USER NOT EXIST!";
+      }
+      else if (result[0].userpassword !== userpassword) {
+        str = "WRONG PASS!";
+      }else {
+        str = "SUCCESSFUL!";
+      }
+      callback(str);
+    });
+  },
+
   // Here our ORM is creating a simple method to execute the necessary MySQL commands in the controllers,
   // Again, we make use of the callback to grab a specific character from the database.
   insertUser: function(userid, userpassword, userfname, userlname, userrole, useremail, userphone, useraddress, callback) {
