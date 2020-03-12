@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/assets/css/user_style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
+
+  <title>Online-Store!</title>
+</head>
+<body>
+
+<div class="container" style="border:solid 0px;"> 
+  <div class="row">
+    <div class="col-12 text-center">
+      &nbsp; <!--style="border:solid 1px; padding-bottom: 50;"-->
+      index.handlebars!
+    </div>
+  </div>
+ 
+  <div class="row">
+
+  <form class="create-form">
+
+    <!-- USER -->
+    <div class="col-12 text-center" style="border:solid 0px; padding-bottom: 50;">
+        <div class="form-group">
+          <label for="userid">User ID:</label>&nbsp;<input type="text" id="userid" name="user_id"><hr>
+          <label for="userpass">User Password:</label>&nbsp;<input type="password" id="userpass" name="user_password"><hr>
+          <label for="userfname">User First Name:</label>&nbsp;<input type="text" id="userfname" name="user_first_name"><hr>
+          <label for="userlname">User Last Name:</label>&nbsp;<input type="text" id="userlname" name="last_name"><hr>
+          <label for="userrole">User Role :</label>&nbsp;<input type="text" id="userrole" name="user_role"><hr>
+          <label for="useremail">User Email :</label>&nbsp;<input type="text" id="useremail" name="user_email"><hr>
+        </div>
+      <hr>
+    </div>
+
+    <!-- ORDER -->
+    <div class="col-12 text-center" style="border:solid 0px; padding-bottom: 50;">
+        <div class="form-group">
+          <label for="orderuserid">Order(User ID):</label>&nbsp;<input type="text" id="orderuserid" name="order_user_id"><hr>
+          <label for="productid">Product ID:</label>&nbsp;<input type="text" id="productid" name="product_id"><hr>
+          <label for="productquantity">Product Quanity:</label>&nbsp;<input type="text" id="productquantity" name="product_quantity"><hr>
+          <button type="submit" class="btn btn-primary btn-sm" data-id="{{this.id}}">Add TEST Order !</button><hr>
+        </div>
+      <hr>
+    </div>
+
+  </form>
+  </div>
+
+
+</div>
+</body>
+</html>
+
+
+
+

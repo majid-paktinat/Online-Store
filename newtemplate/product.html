@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <style>
+        .checked {
+            color: orange;
+        }
+
+        ;
+
+        .unchecked {
+            color: gray;
+            
+        }
+        .button {
+            background-color: #91008b;
+            width: 18rem;
+            border-radius: 20px;
+        }
+        
+
+        
+    </style>
+    <div class="card" style="width: 18rem; background-color: #f4f4f6;">
+        <img src="https://www.sciencemag.org/sites/default/files/styles/article_main_image_-_1280w__no_aspect_/public/dogs_1280p_0.jpg?itok=6jQzdNB8" class="card-img-top" alt="test">
+        <div class="card-body">
+            <h5 class="card-title">Product name and Tags</h5>
+            <p class="publisher">by Bowen Yang</p>
+            <p class="price">CDN $1000</p>
+            <p>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star unchecked"></span>
+                <span class="views">30</span>
+            </p>
+            <div class="form-group">
+                <select class="form-control" id="exampleFormControlSelect1">
+                    <option value="1">Quantity 1</option>
+                    <option value="2">Quantity 2</option>
+                    <option value="3">Quantity 3</option>
+                    <option value="4">Quantity 4</option>
+                    <option value="5">Quantity 5</option>
+                </select>
+              </div>
+        </div>
+    </div>
+    <form>
+        <div class="row col-3">
+          <div class="col">
+            <p>Add (1 item)</p>
+          </div>
+          <div class="col">
+            <p>CDN $1000</p>
+          </div>
+        </div>
+      </form>
+      <button class="button" style="color:#f4f4f6;">Add to Cart</button>
+</body>
+
+</html>
