@@ -5,7 +5,7 @@
 // Dependencies
 // =============================================================
 var connection = require("./connection.js");
-
+const util = require("../lib/util");  
 // ORMs
 // ============================================================= 
 var ormUser = {
@@ -24,16 +24,13 @@ var ormUser = {
   selectUser: function(userid, userpassword, callback) {
     var s = "SELECT userpassword FROM " + this.tableName + " WHERE userid=? ";
     connection.query(s, [userid], function(err, result) {
-      let str  = "";
-      if (result.length == 0) {
-        str = "USER NOT EXIST!";
-      }
-      else if (result[0].userpassword !== userpassword) {
-        str = "WRONG PASS!";
-      }else {
-        str = "SUCCESSFUL!";
-      }
-      callback(str);
+      
+      let resultData  = "";
+      if (result.length == 0) { resultData = "not_exist"; }
+      else if (!util.passCompare(userpassword, result[0].userpassword)) { resultData = "wrong_pass"; }
+      else { resultData = "success_login";  }
+      
+      callback(resultData);
     });
   },
 
