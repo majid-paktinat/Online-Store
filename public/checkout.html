@@ -131,18 +131,14 @@
 
 
 
-<div class="returning_customer">
-        <div class="check_title">
-          <h2>
-            Returning Customer?
-            <a href="#">Click here to login</a>
-          </h2>
-        </div>
-        <p>
-          If you have shopped with us before, please enter your details in the
-          boxes below. If you are a new customer, please proceed to the
-          Billing & Shipping section.
-        </p>
+
+       
+       
+      <!-- TO DO : 
+        check if user alraedy logged in:
+        then no need to display below section, only pulled out 'Shipping Details' from DB 
+        otherwise: display below with 'Shipping Details' pulled out from DB -->
+      <div class="returning_customer">
         <form class="row contact_form" action="#" method="post" novalidate="novalidate">
           <div class="col-md-6 form-group p_star">
             <input type="text" class="form-control" id="name" name="name" value=" " />
@@ -160,7 +156,7 @@
               <input type="checkbox" id="f-option" name="selector" />
               <label for="f-option">Remember me</label>
             </div>
-            <a class="lost_pass" href="#">Lost your password?</a>
+            <!--a class="lost_pass" href="#">Lost your password?</a-->
           </div>
         </form>
       </div>
@@ -172,7 +168,10 @@
       <div class="billing_details">
         <div class="row">
           <div class="col-lg-8">
-            <h3>Billing Details</h3>
+            <p>
+              If the shipping address is different from your profile address, please change it here:
+            </p><hr>
+            <h3>Shipping Details</h3>
             <form class="row contact_form" action="#" method="post" novalidate="novalidate">
               <div class="col-md-6 form-group p_star">
                 <input type="text" class="form-control" id="first" name="name" />
@@ -210,12 +209,7 @@
                 <input type="text" class="form-control" id="zip" name="zip" />
                 <span class="placeholder" data-placeholder="Postcode/ZIP"></span>
               </div>
-              <div class="col-md-12 form-group"> 
-                <div class="creat_account">
-                  <input type="checkbox" id="f-option2" name="selector" />
-                  <label for="f-option2">Create an account?</label>
-                </div>
-              </div>
+             
 
              
             </form>
