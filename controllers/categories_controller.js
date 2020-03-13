@@ -11,7 +11,8 @@ router.get("/api/categories", function(req, res) {
     var hbsObject = {
       categories: data
     };
-    res.render("index", hbsObject);
+    res.send(data);
+    //res.render("index", hbsObject);
   });
 });
 

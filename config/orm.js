@@ -126,7 +126,7 @@ var ormCategory = {
   // Here our ORM is creating a simple method to execute the necessary MySQL commands in the controllers,
   // Again, we make use of the callback to grab a specific character from the database.
   deleteCategory: function(id, callback) { 
-    var s = "DELETE " + this.tableName + " where id = ?";
+    var s = "DELETE FROM " + this.tableName + " where id = ?";
 
     connection.query(s, [id], function(err, result) {
       callback(result);
@@ -169,7 +169,7 @@ var ormProduct = {
   // Here our ORM is creating a simple method to execute the necessary MySQL commands in the controllers,
   // Again, we make use of the callback to grab a specific character from the database.
   deleteProduct: function(id, callback) { 
-    var s = "DELETE " + this.tableName + " where id = ?";
+    var s = "DELETE FROM " + this.tableName + " where id = ?";
 
     connection.query(s, [id], function(err, result) {
       callback(result);

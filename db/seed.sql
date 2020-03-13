@@ -40,8 +40,8 @@ INSERT INTO products (categoryid,productname,productdescription,productimage,pro
 INSERT INTO products (categoryid,productname,productdescription,productimage,productprice) VALUES (3,'Tiara End Table','Whether you are putting little trinkets on display or accenting your well-curated living room or den seating group, this understated and stylish end table is sure to tie any look together. Made from metal and coated in a gold finish, this end table bring a bit of luxe appeal to any aesthetic, while straight-lined legs and a tray-style top tie the table together in contemporary style. The table top is also removable, making it perfect as an impromptu cocktail tray.','./public/assets/img/Tiara+End+Table.jpg',589.99);
 INSERT INTO products (categoryid,productname,productdescription,productimage,productprice) VALUES (3,'Wasser End Table','Every sofa’s sidekick, end tables display decor, hold TV remotes and beverages, and round out seating ensembles in style. Take this one for example: Crafted from metal, the base boasts a gold finish for a glint of glamour in your living room look. Up top, the circular tabletop is made from manufactured wood and sports a solid neutral colour for a look that won’t easily clash with your current colour palette.','./public/assets/img/Wasser+End+Table.jpg',86.99);
 
-INSERT INTO users (userid, userpassword, userfname, userlname, userrole, useremail, userphone, useraddress) VALUES ('sahar123', '123', 'Sahar', 'Sagharichi', 'buyer', 'sahar@gmail.com', '9088 Younge St.');
-INSERT INTO users (userid, userpassword, userfname, userlname, userrole, useremail, userphone, useraddress) VALUES ('majid456', '456', 'Majid', 'Paktinat' , 'seller', 'majid@gmail.com' , '9090 Yonge St.');
+INSERT INTO users (userid, userpassword, userfname, userlname, userrole, useremail, userphone, useraddress) VALUES ('sahar123', '123', 'Sahar', 'Sagharichi', 'buyer', 'sahar@gmail.com', '6477777777', '9088 Younge St.');
+INSERT INTO users (userid, userpassword, userfname, userlname, userrole, useremail, userphone, useraddress) VALUES ('majid456', '456', 'Majid', 'Paktinat' , 'seller', 'majid@gmail.com', '5144444444', '9090 Yonge St.');
 
 
 
