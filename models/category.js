@@ -14,7 +14,7 @@ var category = {
       });
     },
     updateCategory: function(id,categoryname, callback) {
-      ormCategory.updateCategory(updateCategory, function(result) {
+      ormCategory.updateCategory(id, categoryname, function(result) {
         callback(result);
       });
     },

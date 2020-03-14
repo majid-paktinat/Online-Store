@@ -5,7 +5,7 @@
 // Dependencies
 // =============================================================
 var connection = require("./connection.js");
-
+const util = require("../lib/util");  
 // ORMs
 // ============================================================= 
 var ormUser = {
@@ -18,6 +18,19 @@ var ormUser = {
 
     connection.query(s, function(err, result) {
       callback(result);
+    });
+  },
+
+  selectUser: function(userid, userpassword, callback) {
+    var s = "SELECT userpassword FROM " + this.tableName + " WHERE userid=? ";
+    connection.query(s, [userid], function(err, result) {
+      
+      let resultData  = "";
+      if (result.length == 0) { resultData = "not_exist"; }
+      else if (!util.passCompare(userpassword, result[0].userpassword)) { resultData = "wrong_pass"; }
+      else { resultData = "success_login";  }
+      
+      callback(resultData);
     });
   },
 
@@ -161,7 +174,7 @@ var ormProduct = {
   // Again, we make use of the callback to grab a specific character from the database.
   updateProduct: function(id, categoryid, productname, productdescription, productimage, productprice, callback) { 
     var s = "UPDATE " + this.tableName + " SET categoryid = ?, productname = ?, productdescription = ?, productimage = ?, productprice = ?  WHERE id = ?";
-    connection.query(s, [id, categoryid, productname, productdescription, productimage, productprice], function(err, result) {
+    connection.query(s, [categoryid, productname, productdescription, productimage, productprice, id], function(err, result) {
       callback(result);
     });
   },

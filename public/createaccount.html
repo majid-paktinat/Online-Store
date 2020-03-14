@@ -120,54 +120,53 @@
 
 
 
-    <!--================login_part Area =================-->
-    <section class="login_part padding_top">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 col-md-6">
-                    <div class="login_part_text text-center">
-                        <div class="login_part_text_iner">
-                            <p><div id='myalert' class="alert alert-primary" role="alert"></div></p>
-                            <h2>New to our Shop?</h2>
-                            <p>There are advances being made in science and technology
-                                everyday, and a good example of this is the</p>
-                            <a href="#" class="btn_3">Create an Account</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <!--Majid-->
-                    <div class="login_part_form">
-                        <div class="login_part_form_iner">
-                            <h3>Welcome Back ! <br>
-                                Please Sign in now </h3>
-                            <!--form class="row contact_form" action="#" method="post" novalidate="novalidate"-->
-                                <div class="col-md-12 form-group p_star">
-                                    <input type="text" class="form-control" id="username" name="name" value=""
-                                        placeholder="Username">
-                                </div>
-                                <div class="col-md-12 form-group p_star">
-                                    <input type="password" class="form-control" id="userpassword" name="password" value=""
-                                        placeholder="Password">
-                                </div>
-                                <div class="col-md-12 form-group">
-                                    <div class="creat_account d-flex align-items-center">
-                                        <input type="checkbox" id="foption" name="selector">
-                                        <label for="foption">Remember me</label>
-                                    </div>
-                                    <button type="" value="submit" class="btn_3" id="loginbutton">
-                                        log in
-                                    </button>
-                                    <a class="lost_pass" href="#">forget password?</a>
-                                </div>
-                            <!--/form-->
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!--================create_account part Area =================-->
+    <section class="checkout_area padding_top">
+    <div class="container ">
+    <form class="row contact_form" action="#" method="post" novalidate="novalidate">
+        <div class="col-md-6 form-group p_star">
+          <input type="text" class="form-control" id="first" name="name" />
+          <span class="placeholder" data-placeholder="First name"></span>
         </div>
+        <div class="col-md-6 form-group p_star">
+          <input type="text" class="form-control" id="last" name="name" />
+          <span class="placeholder" data-placeholder="Last name"></span>
+        </div>
+        
+        <div class="col-md-6 form-group p_star">
+          <input type="text" class="form-control" id="number" name="number" />
+          <span class="placeholder" data-placeholder="Phone number"></span>
+        </div>
+        <div class="col-md-6 form-group p_star">
+          <input type="text" class="form-control" id="email" name="compemailany" />
+          <span class="placeholder" data-placeholder="Email Address"></span>
+        </div>
+        
+        
+        <div class="col-md-12 form-group p_star">
+          <input type="text" class="form-control" id="add" name="add" />
+          <span class="placeholder" data-placeholder="Address"></span>
+        </div>
+       
+        <div class="col-md-12 form-group p_star">
+          <input type="text" class="form-control" id="city" name="city" /> 
+          <span class="placeholder" data-placeholder="Town/City"></span>
+        </div>
+       
+        <div class="col-md-12 form-group p_star">
+          <input type="text" class="form-control" id="zip" name="zip" />
+          <span class="placeholder" data-placeholder="Postcode/ZIP"></span>
+        </div>
+        <div class="col-md-12 form-group">
+          <div class="creat_account">
+            <input type="checkbox" id="f-option2" name="selector" />
+            <label for="f-option2">Create an account?</label>
+          </div>
+        </div>
+      </form>
+    </div>
     </section>
-    <!--================login_part end =================-->
+    <!--================create_account part end =================-->
 
     <!-- jquery plugins here-->
     <!-- jquery -->
@@ -202,50 +201,6 @@
 
 
 <script>
-
-// Majid
-// Make sure we wait to attach our handlers until the DOM is fully loaded.
-$(function() {
-var alertBox = document.getElementById('myalert'); alertBox.style.display="none";
-$("#loginbutton").on("click", function(event) {
-  // Make sure to preventDefault on a submit event.
-  event.preventDefault();
- 
-  var newLogin = {
-    userid: $("#username").val().trim(),
-    userpassword: $("#userpassword").val().trim()
-  };
-
-  
-  //Send the POST request..
-  $.ajax("/api/login", {
-    type: "POST",
-    data: newLogin
-  }).then(
-    function(data) {
-      console.log("New Login happend!");console.log(data);
-      alertBox.classList.add('alert-success');
-      if (data=='success_login') {
-        if (document.getElementById("foption").checked) 
-            { localStorage.setItem("userId",  $("#username").val().trim()); }
-        else 
-            { sessionStorage.setItem("userId",  $("#username").val().trim()); }    
-        alertBox.style.display="none";alertBox.classList.remove('alert-success');alertBox.classList.remove('alert-warning');
-        location.href = "/index.html" // redirect the user to index page
-      }
-      else if(data=='not_exist')  {
-        alertBox.style.display="block";alertBox.innerHTML = 'not_exist !';alertBox.classList.remove('alert-success');alertBox.classList.add('alert-warning');
-      } else if(data=='wrong_pass') {
-        alertBox.style.display="block";alertBox.innerHTML = 'wrong_pass !';alertBox.classList.remove('alert-success');alertBox.classList.add('alert-warning');
-      }
-      
-      
-    }
-  );
-});
-
-
-});
 
 </script>
 

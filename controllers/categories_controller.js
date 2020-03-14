@@ -6,7 +6,7 @@ const router = express.Router();
 const category = require("../models/category.js");
 
 // Create all our routes and set up logic within those routes where required.
-router.get("/api/categories", function(req, res) {
+router.get("/api/categories", function(req, res) {      //ok, handlebar ??
   category.selectAllCategories(function(data) {
     var hbsObject = {
       categories: data
@@ -16,15 +16,15 @@ router.get("/api/categories", function(req, res) {
   });
 });
 
-router.post("/api/categories", function(req, res) {
+router.post("/api/categories", function(req, res) {     //ok
   //console.log(req.body.categoryname);
   category.insertCategory(req.body.categoryname, function(result) {
     res.json({ id: result.insertId });// Send back the ID of the new category
   });
 });
 
-router.put("/api/categories/update/:id", function(req, res) {
-  const id = req.params.id;
+router.put("/api/categories/update/:id", function(req, res) {      //ok
+  const id = req.params.id;   
   console.log("CategoryID for <update> is equal to : ", id);
   
 category.updateCategory(id, req.body.categoryname, function(result) {
@@ -36,7 +36,7 @@ category.updateCategory(id, req.body.categoryname, function(result) {
   });
 });
 
-router.delete("/api/categories/delete/:id", function(req, res) {
+router.delete("/api/categories/delete/:id", function(req, res) {     //ok
   const id = req.params.id;
   console.log("CategoryID for <delete> is equal to : ", id);
 
