@@ -16,13 +16,7 @@ router.get("/api/products", function(req, res) {       //ok
   });
 });
 
-// router.get("/api/products/:id", function(req, res) {
-//   product.se(req.body.categoryid, req.body.productname, req.body.productdescription, req.body.productimage, req.body.productprice, function(result) {
-//     res.json({ id: result.insertId });// Send back the ID of the new product
-//   });
-// });
-
-router.get("/api/products/:id", async function( req, res ){
+router.get("/api/products/:id", async function( req, res ){   //ok
   const productId = req.params.id;
   product.selectProduct(productId, function(result) {
   //   res.send( {
