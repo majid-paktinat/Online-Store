@@ -161,6 +161,13 @@ var ormProduct = {
     });
   },
 
+  selectProduct: function(productid, callback) {
+    var s = "SELECT * FROM " + this.tableName + " WHERE id=?";
+    connection.query(s, [productid], function(err, result) {
+      callback(result);
+    });
+  },
+
   // Here our ORM is creating a simple method to execute the necessary MySQL commands in the controllers,
   // Again, we make use of the callback to grab a specific character from the database.
   insertProduct: function(categoryid, productname, productdescription, productimage, productprice, callback) {

@@ -7,6 +7,11 @@ var product = {
         callback(result);
       });
     },
+    selectProduct: function(productid, callback) {
+      ormProduct.selectProduct(productid, function(result) {
+        callback(result);
+      });
+    },
     // The variables cols and vals are arrays..
     insertProduct: function(categoryid, productname, productdescription, productimage, productprice, callback) {
       ormProduct.insertProduct(categoryid, productname, productdescription, productimage, productprice, function(result) {
