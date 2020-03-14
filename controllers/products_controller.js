@@ -16,7 +16,7 @@ router.get("/api/products", function(req, res) {       //ok
   });
 });
 
-router.get("/api/products/:id", async function( req, res ){
+router.get("/api/products/:id", async function( req, res ){   //ok
   const productId = req.params.id;
   product.selectProduct(productId, function(result) {
     res.send(result[0]); // because select return on value

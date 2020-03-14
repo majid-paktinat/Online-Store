@@ -46,3 +46,14 @@ CREATE TABLE orders (
     ordermodificationdate DATETIME ON UPDATE CURRENT_TIMESTAMP
 );
 
+CREATE TABLE carts (
+	id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    userid VARCHAR(50) NOT NULL,
+    productid VARCHAR(50) NOT NULL,
+    productquantity VARCHAR(50) NOT NULL,
+    ordercreationdate DATETIME DEFAULT CURRENT_TIMESTAMP,
+    ordermodificationdate DATETIME ON UPDATE CURRENT_TIMESTAMP
+);
+
+
+

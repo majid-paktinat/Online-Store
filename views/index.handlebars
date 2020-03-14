@@ -46,13 +46,37 @@
     </div>
 
     <!-- CATEGORY -->
-        <div class="col-12 text-center" style="border:solid 0px; padding-bottom: 50;">
+    <div class="col-12 text-center" style="border:solid 0px; padding-bottom: 50;">
         <div class="form-group">
           <label for="categoryname">Category Name:</label>&nbsp;<input type="text" id="categoryname" name="category_name"><hr>
+        </div>
+      <hr>
+    </div>
+
+    <!-- PRODUCT -->
+    <div class="col-12 text-center" style="border:solid 0px; padding-bottom: 50;">
+        <div class="form-group">
+          <label for="categoryid">Category ID:</label>&nbsp;<input type="text" id="categoryid" name="category_id"><hr>
+          <label for="productname">Product Name:</label>&nbsp;<input type="password" id="productname" name="product_name"><hr>
+          <label for="productdescription">Product Description:</label>&nbsp;<input type="text" id="productdescription" name="product_description"><hr>
+          <label for="productimage">Product Image:</label>&nbsp;<input type="text" id="productimage" name="product_image"><hr>
+          <label for="productprice">Product Price:</label>&nbsp;<input type="text" id="productprice" name="product_price"><hr>
+        </div>
+      <hr>
+    </div>
+
+    <!-- CART -->
+        <div class="col-12 text-center" style="border:solid 0px; padding-bottom: 50;">
+        <div class="form-group">
+          <label for="cartuserid">Cart(User ID):</label>&nbsp;<input type="text" id="cartuserid" name="cart_user_id"><hr>
+          <label for="productid">Product ID:</label>&nbsp;<input type="text" id="productid" name="product_id"><hr>
+          <label for="productquantity">Product Quanity:</label>&nbsp;<input type="text" id="productquantity" name="product_quantity"><hr>
           <button type="submit" class="btn btn-primary btn-sm" data-id="{{this.id}}">Add TEST Category !</button><hr>
         </div>
       <hr>
     </div>
+
+    
 
 
   </form>
