@@ -34,7 +34,6 @@ router.get("/api/products/:id", async function( req, res ){
   });
 });
 
-router.post("/api/products", function(req, res) {
 router.post("/api/products", function(req, res) {     //ok
   product.insertProduct(req.body.categoryid, req.body.productname, req.body.productdescription, req.body.productimage, req.body.productprice, function(result) {
     res.json({ id: result.insertId });// Send back the ID of the new product
@@ -42,7 +41,6 @@ router.post("/api/products", function(req, res) {     //ok
 });
 
 
-router.put("/api/products/update/:id", function(req, res) {
 router.put("/api/products/update/:id", function(req, res) {   //ok
   const id = req.params.id;
   console.log("ID for <update> is equal to : ", id);
