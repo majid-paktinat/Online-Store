@@ -162,7 +162,7 @@ var ormProduct = {
   },
 
   selectProduct: function(productid, callback) {
-    var s = "SELECT * FROM " + this.tableName + " WHERE id=?";
+    var s = "SELECT products.id as productid, productname, productdescription, productimage, productprice, categoryid, categoryname FROM " + this.tableName + " inner join categories on products.categoryid = categories.id WHERE products.id=?";
     connection.query(s, [productid], function(err, result) {
       callback(result);
     });

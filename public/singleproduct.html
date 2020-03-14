@@ -152,6 +152,13 @@
         <div class="col-lg-5 col-xl-4">
           <div class="s_product_text">
             <!--h5>previous <span>|</span> next</h5-->
+            <form id="cartForm" action="cart.html">
+              <input type="hidden" id="hidproductid"><!--bootcamp online-store-->
+              <input type="hidden" id="hidproductquantity"><!--bootcamp online-store-->
+              <input type="hidden" id="hidproductquantity1"><!--bootcamp online-store-->
+
+            </form>
+           
             <div id="productname"><h3>Faded SkyBlu Denim Jeans</h3></div><!--bootcamp online-store-->
             <div id="productprice"><h2>$149.99</h2></div><!--bootcamp online-store-->
             <ul class="list">
@@ -172,10 +179,10 @@
             <div class="card_area d-flex justify-content-between align-items-center">
               <div class="product_count">
                 <span class="inumber-decrement"> <i class="ti-minus"></i></span>
-                <input class="input-number" type="text" value="1" min="0" max="10">
+                <input class="input-number" id="productquantity" type="text" value="1" min="1" max="10"><!--bootcamp online-store-->
                 <span class="number-increment"> <i class="ti-plus"></i></span>
               </div>
-              <a href="#" class="btn_3">add to cart</a>
+              <a href="#" id="addtocart" class="btn_3">add to cart</a><!--bootcamp online-store-->
               <a href="#" class="like_us"> <i class="ti-heart"></i> </a>
             </div>
           </div>
