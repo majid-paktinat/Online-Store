@@ -16,8 +16,15 @@ router.get("/api/orders", function(req, res) {
   });
 });
 
+router.get("/api/cartFields", function(req, res) {
+    console.log("/api/cartFields");
+    res.send(cartFields); 
+});
+
+
 router.post("/api/orders", function(req, res) {
   order.insertOrder(req.body.userid, req.body.productid, req.body.productquantity, function(result) {
+    cartFields = {USERID:req.body.userid, PRODUCTID:req.body.productid, PRODUCTQUANTITY:req.body.productquantity};
     res.json({ id: result.insertId });// Send back the ID of the new order
   });
 }); 

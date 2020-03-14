@@ -4,10 +4,11 @@ $(function() {
     //Send the GET request
     $.get( `/api/products/${9}` ).then(function(response){
         console.log( `productList: `, response);
-        document.getElementById('hidproductid').value = response[0].productid;
-        document.getElementById('productdescription').innerHTML = `<p>${response[0].productdescription}</p>`;
-        document.getElementById('productname').innerHTML = `<h3>${response[0].productname}</h3>`; 
-        document.getElementById('productprice').innerHTML = `<h2>$${response[0].productprice}</h2>`; 
+        document.getElementById('hiduserid').value = 'majidpak';
+        document.getElementById('hidproductid').value = response.productid;
+        document.getElementById('productdescription').innerHTML = `<p>${response.productdescription}</p>`;
+        document.getElementById('productname').innerHTML = `<h3>${response.productname}</h3>`; 
+        document.getElementById('productprice').innerHTML = `<h2>$${response.productprice}</h2>`; 
         document.getElementById('productimage').setAttribute("src", "/assets/img/.../Bel-Air+Sofa.jpg"); 
       });
 
@@ -16,12 +17,11 @@ $(function() {
         event.preventDefault();
        
         var newCartItem = {
-          userid: 'majidpak',
+          userid: $("#hiduserid").val().trim(),
           productid: $("#hidproductid").val().trim(),
           productquantity: $("#productquantity").val().trim()
         };
       
-        
         //Send the POST request..
         $.ajax("/api/orders", {
           type: "POST",
@@ -30,14 +30,21 @@ $(function() {
           function(data) {
             console.log("New item added to cart!");
             console.log(data);
-            document.getElementById('cartForm').submit();
-            //$.post('cart.html', 'ID=' + "abbas");
-            //location.href="/cart.html";
-            //$.ajax("/api/orders/redirect"
+            location.href="/cart.html"
           }
         );
       });
 
-
+// function majid(){
+//   //document.getElementById('cartForm').submit();
+//   $.ajax("/api/middle", {
+//     type: "POST",
+//     data: newCartItem
+//   }).then(
+//     function(databack) {
+//       console.log(databack)
+//     }
+//   );
+// }
 
 });

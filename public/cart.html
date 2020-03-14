@@ -33,6 +33,9 @@
   <!--::header part start::-->
   <header class="main_menu home_menu">
     <div class="container">
+        <input type="hidden" id="hiduserid"><!--bootcamp online-store-->
+        <input type="hidden" id="hidproductid"><!--bootcamp online-store-->
+        <input type="hidden" id="hidproductquantity"><!--bootcamp online-store-->
         <div class="row align-items-center">
             <div class="col-lg-12">
                 <nav class="navbar navbar-expand-lg navbar-light">
@@ -285,13 +288,12 @@
   <script src="assets/js/price_rangs.js"></script>
   <!-- custom js -->
   <script src="assets/js/custom.js"></script>
+
+  
+  <!--bootcamp online-store-->
+  <script src="/assets/clientjs/cart.js"></script>
   <!--bootcamp online-store-->
   <script src="/assets/clientjs/storage.js"></script>
   <script> loginRequired(true); </script>
-  <script>
-    var parameters = location.search.substring(1).split("&");
-
-    console.log(parameters);
-  </script>
 </body>
 </html>
