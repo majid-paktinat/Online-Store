@@ -4,7 +4,7 @@ $(function() {
     //Send the GET request
     $.get( `/api/products/${9}` ).then(function(response){
         console.log( `productList: `, response);
-        document.getElementById('hiduserid').value = 'majidpak';
+        document.getElementById('hiduserid').value = 'sahar1';
         document.getElementById('hidproductid').value = response.productid;
         document.getElementById('productdescription').innerHTML = `<p>${response.productdescription}</p>`;
         document.getElementById('productname').innerHTML = `<h3>${response.productname}</h3>`; 
