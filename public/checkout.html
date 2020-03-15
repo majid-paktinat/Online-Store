@@ -171,7 +171,7 @@
      
       <div class="billing_details">
         <div class="row">
-          <div class="col-lg-8">
+          <div class="col-lg-7">
             <p>
               If the shipping address is different from your profile address, please change it here:
             </p><hr>
@@ -218,9 +218,13 @@
              
             </form>
           </div>
-          <div class="col-lg-4">
-            <div class="order_box">
-              <h2>Your Order</h2>
+          
+          <div class="col-lg-5">
+            <div class="order_box" id="myorderbox">
+              
+              
+              <!--bootcamp online-store-->
+              <!--
               <ul class="list">
                 <li>
                   <a href="#">Product
@@ -246,10 +250,13 @@
                   </a>
                 </li>
               </ul>
+            -->
+              
+              
               <ul class="list list_2">
                 <li>
                   <a href="#">Subtotal
-                    <span>$2160.00</span>
+                    <span id="totalAmount">$2160.00</span> 
                   </a>
                 </li>
                 <li>
@@ -258,8 +265,8 @@
                   </a>
                 </li>
                 <li>
-                  <a href="#">Total
-                    <span>$2210.00</span>
+                  <a href="#" id="totalAmountIncludingShipping">Total
+                    <!-- <span>$2210.00</span> -->
                   </a>
                 </li>
               </ul>
