@@ -12,8 +12,8 @@ router.get("/api/users", function(req, res) {
     var hbsObject = {
       users: data
     };
-    res.json(data);
-    //res.render("index", hbsObject);
+    //res.json(data);
+    res.render("index", hbsObject);
   });
 });
 
