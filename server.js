@@ -4,6 +4,11 @@ var PORT = process.env.PORT || 8080;
 
 var app = express();
 
+// used by carts_controller
+// {USERID:req.body.userid, PRODUCTID:req.body.productid, PRODUCTQUANTITY:req.body.productquantity}
+var cartFields; 
+
+
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
 
