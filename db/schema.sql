@@ -7,9 +7,9 @@ USE onlinestore_db;
 CREATE TABLE users (
 	id INTEGER AUTO_INCREMENT PRIMARY KEY,
     userid VARCHAR(50) NOT NULL,
-    userpassword VARCHAR(100) NOT NULL,
-    userfname VARCHAR(100) NOT NULL,
-    userlname VARCHAR(100) NOT NULL,
+    userpassword VARCHAR(500) NOT NULL,
+    userfname VARCHAR(200) NOT NULL,
+    userlname VARCHAR(200) NOT NULL,
     userrole VARCHAR(20) NOT NULL,
     useremail VARCHAR(50) NOT NULL,
     userphone VARCHAR(50),
@@ -21,8 +21,8 @@ CREATE TABLE users (
 CREATE TABLE products (
 	id INTEGER AUTO_INCREMENT PRIMARY KEY,
     categoryid VARCHAR(50) NOT NULL,
-    productname VARCHAR(100) NOT NULL,
-    productdescription VARCHAR(1000) NOT NULL,
+    productname VARCHAR(1000) NOT NULL,
+    productdescription VARCHAR(2000) NOT NULL,
     productimage VARCHAR(1000) NOT NULL,
     productprice VARCHAR(50) NOT NULL,
     productcreationdate DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -32,7 +32,7 @@ CREATE TABLE products (
 
 CREATE TABLE categories (
 	id INTEGER AUTO_INCREMENT PRIMARY KEY,
-    categoryname VARCHAR(100) NOT NULL,
+    categoryname VARCHAR(200) NOT NULL,
     categorycreationdate DATETIME DEFAULT CURRENT_TIMESTAMP,
     categorymodificationdate DATETIME ON UPDATE CURRENT_TIMESTAMP
 );
@@ -54,6 +54,7 @@ CREATE TABLE carts (
     ordercreationdate DATETIME DEFAULT CURRENT_TIMESTAMP,
     ordermodificationdate DATETIME ON UPDATE CURRENT_TIMESTAMP
 );
+
 
 
 
