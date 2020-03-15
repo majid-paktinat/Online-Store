@@ -29,7 +29,6 @@ router.post("/api/products", function(req, res) {     //ok
   });
 });
 
-
 router.put("/api/products/update/:id", function(req, res) {   //ok
   const id = req.params.id;
   console.log("ID for <update> is equal to : ", id);

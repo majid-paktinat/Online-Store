@@ -3,10 +3,10 @@ $(function() {
 
 //Send the GET request
 $.get( `/api/cartFields` ).then(function(response){
+    // GET pre-posted params from server and keep them in hidden fields for further use 
     document.getElementById('hiduserid').value = response.USERID;
     document.getElementById('hidproductid').value = response.PRODUCTID;
     document.getElementById('hidproductquantity').value = response.PRODUCTQUANTITY;
-
 });
 
   $(".create-form").on("submit", function(event) {
@@ -18,8 +18,6 @@ $.get( `/api/cartFields` ).then(function(response){
       productid: $("#productid").val().trim(),
       productquantity: $("#productquantity").val().trim()
     };
-
-    console.log(newCart);
 
     // Send the POST request.
     $.ajax("/api/carts", {

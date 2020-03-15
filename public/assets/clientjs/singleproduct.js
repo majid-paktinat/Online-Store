@@ -3,9 +3,13 @@ $(function() {
 
     //Send the GET request
     $.get( `/api/products/${9}` ).then(function(response){
-        console.log( `productList: `, response);
+      
+      console.log( `productList: `, response);
+
+        // Keep userid and productid in hidden fields for further use 
         document.getElementById('hiduserid').value = 'majidpak';
         document.getElementById('hidproductid').value = response.productid;
+
         document.getElementById('productdescription').innerHTML = `<p>${response.productdescription}</p>`;
         document.getElementById('productname').innerHTML = `<h3>${response.productname}</h3>`; 
         document.getElementById('productprice').innerHTML = `<h2>$${response.productprice}</h2>`; 
@@ -23,7 +27,7 @@ $(function() {
         };
       
         //Send the POST request..
-        $.ajax("/api/orders", {
+        $.ajax("/api/carts", { 
           type: "POST",
           data: newCartItem
         }).then(
@@ -34,17 +38,5 @@ $(function() {
           }
         );
       });
-
-// function majid(){
-//   //document.getElementById('cartForm').submit();
-//   $.ajax("/api/middle", {
-//     type: "POST",
-//     data: newCartItem
-//   }).then(
-//     function(databack) {
-//       console.log(databack)
-//     }
-//   );
-// }
 
 });
