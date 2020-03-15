@@ -143,11 +143,20 @@
           <input type="text" class="form-control" id="number" name="number" />
           <span class="placeholder" data-placeholder="Phone number"></span>
         </div>
+
         <div class="col-md-6 form-group p_star">
           <input type="text" class="form-control" id="email" name="compemailany" />
           <span class="placeholder" data-placeholder="Email Address"></span>
         </div>
-        
+
+        <div class="col-md-6 form-group p_star">
+            <input type="text" class="form-control" id="username" name="name" />
+            <span class="placeholder" data-placeholder="Username"></span>
+        </div>
+        <div class="col-md-6 form-group p_star">
+            <input type="password" class="form-control" id="userpassword" name="password" />
+            <span class="placeholder" data-placeholder="Password"></span>
+        </div>
         
         <div class="col-md-12 form-group p_star">
           <input type="text" class="form-control" id="add" name="add" />
@@ -163,12 +172,11 @@
           <input type="text" class="form-control" id="zip" name="zip" />
           <span class="placeholder" data-placeholder="Postcode/ZIP"></span>
         </div>
+
         <div class="col-md-12 form-group">
-          <div class="creat_account">
-            <input type="checkbox" id="f-option2" name="selector" />
-            <label for="f-option2">Create an account?</label>
-          </div>
+            <button type="" value="submit" class="btn_3" id="createbutton">Create</button>
         </div>
+        <p><div id='myalert' class="alert alert-primary" role="alert"></div></p>
       </form>
     </div>
     </section>
@@ -203,6 +211,8 @@
     <script src="assets/js/price_rangs.js"></script>
     <!-- custom js -->
     <script src="assets/js/custom.js"></script>
+    <!--bootcamp online-store-->
+    <script src="/assets/clientjs/users.js"></script>
 </body>
 
 
