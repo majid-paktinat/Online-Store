@@ -7,6 +7,11 @@ var cart = {
         callback(result); 
       });
     },
+    selectCart: function(userid, callback) {
+      ormCart.selectCart(userid, function(result) {
+        callback(result); 
+      });
+    },
     // The variables cols and vals are arrays..
     insertCart: function(userid, productid, productquantity, callback) {
       ormCart.insertCart(userid, productid, productquantity, function(result) {
