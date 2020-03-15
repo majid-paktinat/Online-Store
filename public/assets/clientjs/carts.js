@@ -103,7 +103,6 @@ el.setAttribute('data-foo', 'Hello World!');
   function majCart (event){
     event.preventDefault();
     X = event.currentTarget.id; X = X.substr(0, X.length-2);
-    //elID = event.currentTarget.id; 
     if (event.currentTarget.id==`${X}Ne`) $(`#${X}`).val(Number($(`#${X}`).val()) + 1);
     if (event.currentTarget.id==`${X}Pr` && Number($(`#${X}`).val() > 0)) $(`#${X}`).val(Number($(`#${X}`).val()) - 1);
 
@@ -112,4 +111,10 @@ el.setAttribute('data-foo', 'Hello World!');
     console.log(Number($(`#${X}`).val())); 
   }
   
+});
+
+$("#continueshopping").on("click", function(event) {
+  // Make sure to preventDefault on a submit event.
+  event.preventDefault();
+  location.href="/index.html"
 });
