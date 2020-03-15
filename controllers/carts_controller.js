@@ -63,7 +63,7 @@ router.put("/api/carts/update/:cartid/:quantity", function(req, res) {   //ok
   
   console.log("Cart quantity is being updated");
   
-  cart.updateCart(cartid, quantity, function(result) {
+  cart.updateCart1(cartid, quantity, function(result) {
     console.log(result);
     if (result.changedRows == 0) {
       return res.status(404).end(); // If no rows were changed, then the ID must not exist, so 404

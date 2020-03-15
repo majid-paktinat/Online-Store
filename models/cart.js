@@ -23,8 +23,8 @@ var cart = {
         callback(result);
       });
     },
-    updateCart: function(cartid, quantity, callback) {
-      ormCart.updateCart(cartid, quantity, function(result) {
+    updateCart1: function(cartid, quantity, callback) {
+      ormCart.updateCart1(cartid, quantity, function(result) {
         callback(result);
       });
     },

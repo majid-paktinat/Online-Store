@@ -34,7 +34,7 @@ var ormUser = {
     });
   },
 
-  selectUser: function(userid, callback) {
+  selectUser1: function(userid, callback) {
     var s = "SELECT * FROM " + this.tableName + " WHERE userid=? ";
     connection.query(s, [userid], function(err, result) {
       callback(result);
@@ -242,7 +242,7 @@ var ormCart = {
     });
   },
 
-  updateCart: function(cartid, quantity, callback) { 
+  updateCart1: function(cartid, quantity, callback) { 
     var s = "UPDATE " + this.tableName + " SET productquantity = ?  WHERE id = ?";
     connection.query(s, [quantity, cartid], function(err, result) {
       callback(result);

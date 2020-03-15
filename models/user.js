@@ -12,8 +12,8 @@ var user = {
         callback(result);
       });
     },
-    selectUser: function(userid, callback) {
-      ormUser.selectUser(userid, function(result) {
+    selectUser1: function(userid, callback) {
+      ormUser.selectUser1(userid, function(result) {
         callback(result);
       });
     },
