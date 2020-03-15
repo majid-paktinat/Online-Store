@@ -31,5 +31,11 @@ $.get( `/api/cartFields` ).then(function(response){
     );
   });
 
+  $("#continueshopping").on("click", function(event) {
+    // Make sure to preventDefault on a submit event.
+    event.preventDefault();
+    location.href="/index.html"
+   
+  });
 
 });
