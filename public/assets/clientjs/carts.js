@@ -1,6 +1,8 @@
 // bootcamp
 $(function() {
 
+
+
 //Send the GET request
 $.get( `/api/cartFields` ).then(function(response){
     // GET pre-posted params from server and keep them in hidden fields for further use 
@@ -8,12 +10,12 @@ $.get( `/api/cartFields` ).then(function(response){
     document.getElementById('hidproductid').value = response.PRODUCTID;
     document.getElementById('hidproductquantity').value = response.PRODUCTQUANTITY;
     //console.log(response.USERID);  // agar direct az addressbar biyad too cart.html ina empty hastan... (bayad control konim!)
-});
+
 
 //Send the GET request
-$.get( `/api/cart/majidpak` ).then(function(response){
+$.get( `/api/cart/${document.getElementById('hiduserid').value}` ).then(function(response){
   // GET all records inside the "Cart Entiry" for the specific userid
-  console.log("response");
+  console.log("responseXDE");
   console.log(document.getElementById('hiduserid').value);
   console.log(response);
   console.log(response[0]);
@@ -70,6 +72,13 @@ el.setAttribute('data-foo', 'Hello World!');
 
 });
 
+
+
+});
+
+
+
+
   $(".create-form").on("submit", function(event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
@@ -108,7 +117,21 @@ el.setAttribute('data-foo', 'Hello World!');
 
     console.log($(`#productquantity${X.substr(15,2)}`).attr('data-id')); // 15 for productquantity and 2 for having the specified length.
     //console.log($(`#productquantity${X.substr(15,2)}`).attr('data-quantity')); // 15 for productquantity and 2 for having the specified length.
+    idToUpdate = $(`#productquantity${X.substr(15,2)}`).attr('data-id')
+    
     console.log(Number($(`#${X}`).val())); 
+    quantityToUpdate = Number($(`#${X}`).val());
+
+    // Send the POST request.
+    $.ajax(`/api/carts/update/${idToUpdate}/${quantityToUpdate}`, {
+      type: "PUT"
+    }).then(
+      function() {
+        console.log("Cart updated!");
+        //location.reload(); // Reload the page to get the updated list
+      }
+    );
+
   }
   
 });
@@ -117,4 +140,10 @@ $("#continueshopping").on("click", function(event) {
   // Make sure to preventDefault on a submit event.
   event.preventDefault();
   location.href="/index.html"
+});
+
+$("#proceedtocheckout").on("click", function(event) {
+  // Make sure to preventDefault on a submit event.
+  event.preventDefault();
+  location.href="/checkout.html"
 });

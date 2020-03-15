@@ -235,6 +235,13 @@ var ormCart = {
     });
   },
 
+  updateCart: function(cartid, quantity, callback) { 
+    var s = "UPDATE " + this.tableName + " SET productquantity = ?  WHERE id = ?";
+    connection.query(s, [quantity, cartid], function(err, result) {
+      callback(result);
+    });
+  },
+
   // Here our ORM is creating a simple method to execute the necessary MySQL commands in the controllers,
   // Again, we make use of the callback to grab a specific character from the database.
   deleteCart: function(cartid, callback) { 

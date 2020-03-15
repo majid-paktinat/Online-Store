@@ -57,6 +57,22 @@ router.put("/api/carts/update/:cartid", function(req, res) {   //ok
   });
 });
 
+router.put("/api/carts/update/:cartid/:quantity", function(req, res) {   //ok
+  const cartid = req.params.cartid;
+  const quantity = req.params.quantity;
+  
+  console.log("Cart quantity is being updated");
+  
+  cart.updateCart(cartid, quantity, function(result) {
+    console.log(result);
+    if (result.changedRows == 0) {
+      return res.status(404).end(); // If no rows were changed, then the ID must not exist, so 404
+    } else {
+      res.status(200).end();
+    }
+  });
+});
+
 router.delete("/api/carts/delete/:cartid", function(req, res) {  //ok
   const cartid = req.params.cartid;
   console.log("ID for <delete> is equal to : ", cartid);
