@@ -139,7 +139,7 @@
         check if user alraedy logged in:
         then no need to display below section, only pulled out 'Shipping Details' from DB 
         otherwise: display below with 'Shipping Details' pulled out from DB -->
-      <div class="returning_customer">
+      <div class="returning_customer" id="customerlogin">
         <form class="row contact_form" action="#" method="post" novalidate="novalidate">
           <div class="col-md-6 form-group p_star">
             <input type="text" class="form-control" id="name" name="name" value=" " />
@@ -176,20 +176,20 @@
             <form class="row contact_form" action="#" method="post" novalidate="novalidate">
               <div class="col-md-6 form-group p_star">
                 <input type="text" class="form-control" id="first" name="name" />
-                <span class="placeholder" data-placeholder="First name"></span>
+                <span class="placeholder" data-placeholder="First name MAJID"></span>
               </div>
               <div class="col-md-6 form-group p_star">
                 <input type="text" class="form-control" id="last" name="name" />
-                <span class="placeholder" data-placeholder="Last name"></span>
+                <span class="placeholder" data-placeholder="Last name PAKTINAt"></span>
               </div>
               
               <div class="col-md-6 form-group p_star">
                 <input type="text" class="form-control" id="number" name="number" />
-                <span class="placeholder" data-placeholder="Phone number"></span>
+                <span class="placeholder" data-placeholder="Phone number 647..."></span>
               </div>
               <div class="col-md-6 form-group p_star">
                 <input type="text" class="form-control" id="email" name="compemailany" />
-                <span class="placeholder" data-placeholder="Email Address"></span>
+                <span class="placeholder" data-placeholder="Email Address MAJID@gmail.com"></span>
               </div>
               <div class="col-md-12 form-group p_star">
                 <select class="country_select">
@@ -198,17 +198,17 @@
               </div>
               <div class="col-md-12 form-group p_star">
                 <input type="text" class="form-control" id="add" name="add" />
-                <span class="placeholder" data-placeholder="Address"></span>
+                <span class="placeholder" data-placeholder="Address 62 Forest"></span>
               </div>
              
               <div class="col-md-12 form-group p_star">
                 <input type="text" class="form-control" id="city" name="city" />
-                <span class="placeholder" data-placeholder="Town/City"></span>
+                <span class="placeholder" data-placeholder="Town/City Toronto"></span>
               </div>
              
               <div class="col-md-12 form-group p_star">
                 <input type="text" class="form-control" id="zip" name="zip" />
-                <span class="placeholder" data-placeholder="Postcode/ZIP"></span>
+                <span class="placeholder" data-placeholder="Postcode/ZIP M2J0B6"></span>
               </div>
              
 
@@ -307,6 +307,10 @@
   <script src="assets/js/price_rangs.js"></script>
   <!-- custom js -->
   <script src="assets/js/custom.js"></script>
+
+  <!--bootcamp online-store-->
+  <script src="/assets/clientjs/checkout.js"></script>
+
   <!--bootcamp online-store-->
   <script src="/assets/clientjs/storage.js"></script>
   <script> loginRequired(true); </script>

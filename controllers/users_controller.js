@@ -61,6 +61,12 @@ router.post("/api/login", function(req, res) {
   });
 });
 
+router.get("/api/user/:userid", function(req, res) {
+  const userid = req.params.userid
+  user.selectUser(userid, function(data) {
+    res.send(data);
+  });
+});
 
 // Export routes for server.js to use.
 module.exports = router;

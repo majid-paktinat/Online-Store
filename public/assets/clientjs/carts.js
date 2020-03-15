@@ -56,10 +56,7 @@ $.get( `/api/cart/${document.getElementById('hiduserid').value}` ).then(function
   $("#mytbody").prepend(tbodyStr);
   $("#totalAmount").html(`<h5>$${number_format(totalAmount,2)}</h5>`);
   
-
-  var el = document.querySelector('div');
-el.setAttribute('data-foo', 'Hello World!');
-  
+ 
   // <!--bootcamp online-store-->
   $(`#productquantity${i}Ne`).on("click", majCart); // $(`#${X}Ne`).on("click", majCart);
   $(`#productquantity${i}Pr`).on("click", majCart); // $(`#${X}Pr`).on("click", majCart);

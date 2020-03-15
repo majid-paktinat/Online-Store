@@ -34,6 +34,13 @@ var ormUser = {
     });
   },
 
+  selectUser: function(userid, callback) {
+    var s = "SELECT * FROM " + this.tableName + " WHERE userid=? ";
+    connection.query(s, [userid], function(err, result) {
+      callback(result);
+    });
+  },
+
   // Here our ORM is creating a simple method to execute the necessary MySQL commands in the controllers,
   // Again, we make use of the callback to grab a specific character from the database.
   insertUser: function(userid, userpassword, userfname, userlname, userrole, useremail, userphone, useraddress, callback) {
