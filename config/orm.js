@@ -210,7 +210,13 @@ var ormCart = {
       callback(result);
     });
   },
+  selectCart: function(userid, callback) {
+    var s = "SELECT carts.id as cartid, products.id as productid, carts.userid as userid, products.productname, products.productprice, products.productimage, productquantity FROM " + this.tableName + " INNER JOIN products ON carts.productid=products.id WHERE carts.userid = ?";
 
+    connection.query(s, [userid], function(err, result) {
+      callback(result);
+    });
+  },
   // Here our ORM is creating a simple method to execute the necessary MySQL commands in the controllers,
   // Again, we make use of the callback to grab a specific character from the database.
   insertCart: function(userid, productid, productquantity, callback) {

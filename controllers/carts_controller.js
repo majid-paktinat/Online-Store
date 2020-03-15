@@ -21,9 +21,20 @@ router.get("/api/carts", function(req, res) {      //ok
 
 router.get("/api/cartFields", function(req, res) {
   console.log("'/api/cartFields' reads cartFields...");
+  //console.log(cartFields)
   res.send(cartFields); 
 });
 
+router.get("/api/cart/:userid", function(req, res) {
+  console.log("inside /api/cart/:userid");
+  const userid = req.params.userid;
+  cart.selectCart(userid, function(data) {
+    res.send(data);
+  });
+
+
+  //res.send(cartFields); 
+});
 
 router.post("/api/carts", function(req, res) {
   cart.insertCart(req.body.userid, req.body.productid, req.body.productquantity, function(result) {
