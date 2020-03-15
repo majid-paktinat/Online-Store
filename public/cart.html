@@ -28,11 +28,21 @@
   <!-- style CSS -->
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
-
+<!--bootcamp online-store-->
+<style> 
+  .thumbnail-size {
+      width: 20vw;
+      height: 40vh; /* 30% of viewport: see: https://css-tricks.com/fun-viewport-units/ */
+      object-fit: cover;
+  }
+</style>
 <body>
       <!--::header part start::-->
       <header class="main_menu home_menu">
         <div class="container">
+        <input type="hidden" id="hiduserid"><!--bootcamp online-store-->
+        <input type="hidden" id="hidproductid"><!--bootcamp online-store-->
+        <input type="hidden" id="hidproductquantity"><!--bootcamp online-store-->
             <div class="row align-items-center">
                 <div class="col-lg-12">
                     <nav class="navbar navbar-expand-lg navbar-light">
@@ -146,89 +156,33 @@
               <tr>
                 <td>
                   <div class="media">
-                    <div class="d-flex">
-                      <img src="assets/img/product/single-product/cart-1.jpg" alt="" />
+                    <div class="d-flex"> <!--bootcamp online-store-->
+                      <div data-thumb="">
+                        <img class="thumbnail-size" src="assets/img/product/single-product/product_1.png" />
+                      </div>
+                     
+
                     </div>
                     <div class="media-body">
-                      <p>Minimalistic shop for multipurpose use 1</p>
+                      <div id="productnameRow1"><p>Minimalistic shop for multipurpose use 1</p></div> <!--bootcamp online-store-->
                     </div>
                   </div>
                 </td>
                 <td>
-                  <h5>$360.00</h5>
+                  <div id="productpriceRow1"><h5>$360.00</h5></div> <!--bootcamp online-store-->
                 </td>
                 <td>
                   <div class="product_count">
-                    <span class="input-number-decrement" id="Aprev"> <i class="ti-angle-down"></i></span>
-                    <input class="Ainput-number" type="text" value="1" min="0" max="10"> <!--bootcamp online-store-->
-                    <span class="input-number-increment" id="Anext"> <i class="ti-angle-up"></i></span>
+                    <span class="input-number-decrement" id="productquantity1Pr"> <i class="ti-angle-down"></i></span> <!--bootcamp online-store-->
+                    <input class="Ainput-number" id="productquantity1" type="text" value="1" min="0" max="10"> <!--bootcamp online-store-->
+                    <span class="input-number-increment" id="productquantity1Ne"> <i class="ti-angle-up"></i></span> <!--bootcamp online-store-->
                   </div>
                 </td>
                 <td>
-                  <h5>$720.00</h5>
+                  <div id="totalRow1"><h5>$720.00</h5></div> <!--bootcamp online-store-->
                 </td>
               </tr>
-              <tr>
-                <td>
-                  <div class="media">
-                    <div class="d-flex">
-                      <img src="assets/img/product/single-product/cart-1.jpg" alt="" />
-                    </div>
-                    <div class="media-body">
-                      <p>Minimalistic shop for multipurpose use 2</p>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <h5>$360.00</h5>
-                </td>
-                <td>
-                  <div class="product_count">
-                    <!-- <input type="text" value="1" min="0" max="10" title="Quantity:"
-                      class="input-text qty input-number" />
-                    <button
-                      class="increase input-number-increment items-count" type="button">
-                      <i class="ti-angle-up"></i>
-                    </button>
-                    <button
-                      class="reduced input-number-decrement items-count" type="button">
-                      <i class="ti-angle-down"></i>
-                    </button> -->
-                    <span class="input-number-decrement"> <i class="ti-angle-down"></i></span>
-                    <input class="input-number" type="text" value="1" min="0" max="10">
-                    <span class="input-number-increment"> <i class="ti-angle-up"></i></span>
-                  </div>
-                </td>
-                <td>
-                  <h5>$720.00</h5>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="media">
-                    <div class="d-flex">
-                      <img src="assets/img/product/single-product/cart-1.jpg" alt="" />
-                    </div>
-                    <div class="media-body">
-                      <p>Minimalistic shop for multipurpose use 3</p>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <h5>$360.00</h5>
-                </td>
-                <td>
-                  <div class="product_count">
-                    <span class="input-number-decrement"> <i class="ti-angle-down"></i></span>
-                    <input class="input-number" type="text" value="1" min="0" max="10">
-                    <span class="input-number-increment"> <i class="ti-angle-up"></i></span>
-                  </div>
-                </td>
-                <td>
-                  <h5>$720.00</h5>
-                </td>
-              </tr>
-             
+              
               <tr>
                 <td></td>
                 <td></td>
@@ -236,7 +190,7 @@
                   <h5>Subtotal</h5>
                 </td>
                 <td>
-                  <h5>$2160.00</h5>
+                  <div id="totalAmount"><h5>$2160.00</h5></div> <!--bootcamp online-store-->
                 </td>
               </tr>
              

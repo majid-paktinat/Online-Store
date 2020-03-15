@@ -4,13 +4,13 @@ $(function() {
     //Send the GET request
     $.get( `/api/products/${9}` ).then(function(response){
         console.log( `productList: `, response);
-        document.getElementById('hiduserid').value = 'sahar1';
+        document.getElementById('hiduserid').value = 'majidpak';
         document.getElementById('hidproductid').value = response.productid;
 
         document.getElementById('productdescription').innerHTML = `<p>${response.productdescription}</p>`;
         document.getElementById('productname').innerHTML = `<h3>${response.productname}</h3>`; 
         document.getElementById('productprice').innerHTML = `<h2>$${response.productprice}</h2>`; 
-        document.getElementById('productimage').setAttribute("src", "/assets/img/.../Bel-Air+Sofa.jpg"); 
+        document.getElementById('productimage').setAttribute("src", "/assets/img/Sofas/Bel-Air+Sofa.jpg"); 
       });
 
       $("#addtocart").on("click", function(event) {
