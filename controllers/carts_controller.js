@@ -2,6 +2,8 @@ const express = require("express");
 
 const router = express.Router();
 
+let cartFields; // {u:req.body.userid, p:req.body.productid, q:req.body.productquantity}
+
 // Import the model (cat.js) to use its database functions.
 const cart = require("../models/cart.js");
 
