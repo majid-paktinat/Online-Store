@@ -20,7 +20,6 @@ $.get( `/api/cart/${document.getElementById('hiduserid').value}` ).then(function
   // console.log(document.getElementById('hiduserid').value);
   // console.log(response);
   
-  
   let totalAmount = 0;
   for (i=response.length; i>0; i--){
     let totalRow = 0;

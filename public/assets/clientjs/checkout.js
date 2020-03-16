@@ -12,6 +12,18 @@ document.getElementById("customerlogin").style.display='none';
             document.getElementById('hidproductquantity').value = response.PRODUCTQUANTITY;
             // console.log(response.USERID);  // agar direct az addressbar biyad too checkout.html ina empty hastan... (bayad control konim!)
 
+            $.get( `/api/user/${document.getElementById('hiduserid').value}` ).then(function(response){
+                console.log(response);
+                document.getElementById('firstname').value=response[0].userfname;
+                document.getElementById('lastname').value=response[0].userlname;
+                document.getElementById('phonenumber').value=response[0].userphone;
+                document.getElementById('emailaddress').value=response[0].useremail;
+                document.getElementById('addressfield').value=response[0].useraddress;
+                document.getElementById('cityfield').value="Toronto";
+                document.getElementById('zipfield').value="M2J 0B6";
+            });
+
+
                 //Send the GET request
                 $.get( `/api/cart/${document.getElementById('hiduserid').value}` ).then(function(response){
                 
