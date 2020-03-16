@@ -18,6 +18,14 @@ router.get("/api/users", function(req, res) {
 });
 
 router.post("/api/users", function(req, res) {
+  user.selectUser(req.body.userid, req.body.userpassword, function(data) {
+    var hbsObject = {
+      userLogin: data
+    };
+    //console.log(data);
+    res.json(data);
+    //res.render("index", hbsObject);
+  });
   user.insertUser(req.body.userid, util.passHash(req.body.userpassword), req.body.userfname, req.body.userlname, req.body.userrole, req.body.useremail, req.body.userphone, req.body.useraddress, function(result) {
     res.json({ id: result.insertId });// Send back the ID of the new user
   });
