@@ -1,4 +1,3 @@
-require('dotenv').config(); // Loads environment variables from a .env file into the process.env variable
 
 var express = require("express");
 
@@ -6,6 +5,7 @@ var PORT = process.env.PORT || 8080;
 
 var app = express();
 
+require('dotenv').config(); // Loads environment variables from a .env file into the process.env variable
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
