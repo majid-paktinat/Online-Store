@@ -10,7 +10,7 @@ $(function() {
       userpassword: $("#userpassword").val().trim(),
       userfname: $("#first").val().trim(),
       userlname: $("#last").val().trim(),
-      userrole: $("#userrole").val().trim(),
+      userrole: "Buyer",
       useremail: $("#email").val().trim()
     };
 
@@ -19,9 +19,12 @@ $(function() {
       type: "POST",
       data: newUser
     }).then(
-      function() {
+      function(data) {
+        alertBox.classList.add('alert-success');
+        console.log(data);
         console.log("New User created!");
-        location.reload(); // Reload the page to get the updated list
+        //location.reload(); // Reload the page to get the updated list
+        alertBox.style.display="block";alertBox.innerHTML = 'Account Created Successfully!';alertBox.classList.remove('alert-success');alertBox.classList.add('alert-warning');
       }
     );
   });
