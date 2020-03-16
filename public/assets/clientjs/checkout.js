@@ -50,7 +50,7 @@ document.getElementById("customerlogin").style.display='none';
                         totalAmount = Number(totalAmount) + Number(totalRow);
 
                         addOrder(response[i].userid, response[i].productid, response[i].productquantity);
-
+                        deleteCart(response[i].cartid);
                         
                         
                     }
@@ -94,6 +94,17 @@ function addOrder(userid, productid, productquantity){
       }).then(
         function() {
           console.log("New Order created!");
+        }
+      );
+
+}
+
+function deleteCart(cartid){
+      $.ajax(`/api/carts/delete/${cartid}`, {
+        type: "DELETE"
+      }).then(
+        function() {
+          console.log("Cart Deleted!");
         }
       );
 }
