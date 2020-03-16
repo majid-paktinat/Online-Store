@@ -2,7 +2,7 @@ require('dotenv').config(); // Loads environment variables from a .env file into
 
 var express = require("express");
 
-var PORT = process.env.serverport || 8080;
+var PORT = process.env.PORT || 8080;
 
 var app = express();
 
