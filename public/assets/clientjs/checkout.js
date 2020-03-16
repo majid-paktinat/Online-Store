@@ -10,9 +10,9 @@ document.getElementById("customerlogin").style.display='none';
             document.getElementById('hiduserid').value = response.USERID;
             document.getElementById('hidproductid').value = response.PRODUCTID;
             document.getElementById('hidproductquantity').value = response.PRODUCTQUANTITY;
-            // console.log(response.USERID);  // agar direct az addressbar biyad too checkout.html ina empty hastan... (bayad control konim!)
+            console.log(response.USERID);  // agar direct az addressbar biyad too checkout.html ina empty hastan... (bayad control konim!)
 
-            $.get( `/api/user/${document.getElementById('hiduserid').value}` ).then(function(response){
+            $.get( `/api/user/'${document.getElementById('hiduserid').value}'` ).then(function(response){
                 console.log(response);
                 document.getElementById('firstname').value=response[0].userfname;
                 document.getElementById('lastname').value=response[0].userlname;

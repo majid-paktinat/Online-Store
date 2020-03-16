@@ -2,7 +2,7 @@
 $(function() {
 
     //Send the GET request
-    $.get( `/api/products/${9}` ).then(function(response){
+    $.get( `/api/products/${8}` ).then(function(response){
         // console.log( `productList: `, response);
         document.getElementById('hiduserid').value = 'majidpak';
         document.getElementById('hidproductid').value = response.productid;

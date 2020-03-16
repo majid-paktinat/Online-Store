@@ -35,8 +35,8 @@ var ormUser = {
   },
 
   selectUser1: function(userid, callback) {
-    var s = "SELECT * FROM " + this.tableName + " WHERE userid=? ";
-    connection.query(s, [userid], function(err, result) {
+    var s = "SELECT * FROM " + this.tableName + " WHERE userid="+ userid;
+    connection.query(s, function(err, result) {
       callback(result);
     });
   },
