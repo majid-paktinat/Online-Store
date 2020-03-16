@@ -40,7 +40,7 @@ Use this [project presentation template](https://docs.google.com/presentation/d/
 
 2. Make a package.json file by running `npm init` from the command line.
 
-3. Install the Express npm package: `npm install express`, `npm install mysql`, `npm install express-handlebars`, `npm install dotenv`, `npm install bcryptjs` and `npm install path`  
+3. Install the Express npm package: `npm install express`, `npm install mysql`, `npm install express-handlebars`, `npm install dotenv`, `npm install bcryptjs`, `npm install path` and  `npm install stripe`
 
 4. Create a server.js file.
 
