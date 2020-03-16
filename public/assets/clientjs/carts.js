@@ -12,9 +12,11 @@ $.get( `/api/cartFields` ).then(function(response){
     //console.log(response.USERID);  // agar direct az addressbar biyad too cart.html ina empty hastan... (bayad control konim!)
 
 
-//Send the GET request
-$.get( `/api/cart/${document.getElementById('hiduserid').value}` ).then(function(response){
-  // GET all records inside the "Cart Entiry" for the specific userid
+// GET all records inside the "Cart Entiry" for the specific userid
+//$.get( `/api/cart/${document.getElementById('hiduserid').value}` ).then(function(response){
+  $.get( `/api/cart/majidpak` ).then(function(response){
+
+
   
   // console.log("response XDE");
   // console.log(document.getElementById('hiduserid').value);
@@ -37,7 +39,7 @@ $.get( `/api/cart/${document.getElementById('hiduserid').value}` ).then(function
       </div>
     </td>
     <td>
-      <div id="productpriceRow${i}"><h5>${response[i-1].productprice}</h5></div> <!--bootcamp online-store-->
+      <div id="productpriceRow${i}" data-price="${response[i-1].productprice}"><h5>${response[i-1].productprice}</h5></div> <!--bootcamp online-store-->
     </td>
     <td>
       <div class="product_count">
@@ -53,6 +55,7 @@ $.get( `/api/cart/${document.getElementById('hiduserid').value}` ).then(function
   totalRow = number_format(Number(response[i-1].productquantity)*Number(response[i-1].productprice), 2);
   totalAmount = Number(totalAmount) + Number(totalRow);
   $("#mytbody").prepend(tbodyStr);
+  $("#totalAmount").attr(('data-price'),number_format(totalAmount,2));
   $("#totalAmount").html(`<h5>$${number_format(totalAmount,2)}</h5>`);
   
  
@@ -113,10 +116,29 @@ $.get( `/api/cart/${document.getElementById('hiduserid').value}` ).then(function
 
     console.log($(`#productquantity${X.substr(15,2)}`).attr('data-id')); // 15 for productquantity and 2 for having the specified length.
     //console.log($(`#productquantity${X.substr(15,2)}`).attr('data-quantity')); // 15 for productquantity and 2 for having the specified length.
-    idToUpdate = $(`#productquantity${X.substr(15,2)}`).attr('data-id')
-    
-    console.log(Number($(`#${X}`).val())); 
+    idToUpdate = $(`#productquantity${X.substr(15,2)}`).attr('data-id');
     quantityToUpdate = Number($(`#${X}`).val());
+
+    // Recalculation....
+    // console.log($(`#totalRow${X.substr(15,2)}`));
+    p = Number($(`#productpriceRow${X.substr(15,2)}`).attr('data-price'));
+    $(`#totalRow${X.substr(15,2)}`).html(`<h5>$${number_format(Number(p*quantityToUpdate),2)}</h5>`);
+
+    if (event.currentTarget.id==`${X}Ne`){
+      temp1 = Number($("#totalAmount").attr('data-price'));
+      //temp2 = Number($(`#productpriceRow${X.substr(15,2)}`).attr('data-price'));
+      A = Number(temp1) + p;
+      $("#totalAmount").attr(('data-price'),number_format(A,2));
+      $("#totalAmount").html(`<h5>$${number_format(A,2)}</h5>`);
+    }
+
+    if (event.currentTarget.id==`${X}Pr`){
+      temp1 = Number($("#totalAmount").attr('data-price'));
+      //temp2 = Number($(`#productpriceRow${X.substr(15,2)}`).attr('data-price'));
+      A = Number(temp1) - p;
+      $("#totalAmount").attr(('data-price'),number_format(A,2));
+      $("#totalAmount").html(`<h5>$${number_format(A,2)}</h5>`);
+    }
 
     // Send the POST request.
     $.ajax(`/api/carts/update/${idToUpdate}/${quantityToUpdate}`, {
