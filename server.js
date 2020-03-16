@@ -1,5 +1,3 @@
-require('dotenv').config(); // Loads environment variables from a .env file into the process.env variable
-
 var express = require("express");
 
 var PORT = process.env.PORT || 8080;
@@ -15,6 +13,10 @@ app.use(express.static("public"));
 // Parse application body as JSON
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+
+
+
 
 app.use(express.json({
     // We need the raw body to verify webhook signatures.
