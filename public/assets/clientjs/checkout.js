@@ -102,7 +102,7 @@ $("#proceedtopayment").on("click", function(event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
     if ($("#termsoption").prop("checked")) {
-        location.href="/payment.html";
+        location.href="/payin.html";
     } else alert("please check terms & conditions!");
     
 });
