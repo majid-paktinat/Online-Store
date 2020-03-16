@@ -4,15 +4,13 @@ $(function() {
 // since this page has already been loginRequired(true)!
 document.getElementById("customerlogin").style.display='none'; 
 
-
-
-//Send the GET request
-$.get( `/api/cartFields` ).then(function(response){
-    // GET pre-posted params from server and keep them in hidden fields for further use 
-    document.getElementById('hiduserid').value = response.USERID;
-    document.getElementById('hidproductid').value = response.PRODUCTID;
-    document.getElementById('hidproductquantity').value = response.PRODUCTQUANTITY;
-    // console.log(response.USERID);  // agar direct az addressbar biyad too checkout.html ina empty hastan... (bayad control konim!)
+    //Send the GET request
+    $.get( `/api/cartFields` ).then(function(response){
+            // GET pre-posted params from server and keep them in hidden fields for further use 
+            document.getElementById('hiduserid').value = response.USERID;
+            document.getElementById('hidproductid').value = response.PRODUCTID;
+            document.getElementById('hidproductquantity').value = response.PRODUCTQUANTITY;
+            // console.log(response.USERID);  // agar direct az addressbar biyad too checkout.html ina empty hastan... (bayad control konim!)
 
                 //Send the GET request
                 $.get( `/api/cart/${document.getElementById('hiduserid').value}` ).then(function(response){
@@ -38,47 +36,24 @@ $.get( `/api/cartFields` ).then(function(response){
                                     </li>`
                         
                         totalAmount = Number(totalAmount) + Number(totalRow);
+
+                        addOrder(response[i].userid, response[i].productid, response[i].productquantity);
+
+                        
+                        
                     }
 
-                ulStr = ulStr + ` </ul>`; 
-                $("#myorderbox").prepend(ulStr);
+                    ulStr = ulStr + ` </ul>`; 
+                    $("#myorderbox").prepend(ulStr);
 
-                totalAmount = number_format(totalAmount,2);
-                $("#totalAmount").html(`<span>$${totalAmount}</span>`);
+                    totalAmount = number_format(totalAmount,2);
+                    $("#totalAmount").html(`<span>$${totalAmount}</span>`);
 
-                totalAmount = Number(totalAmount) + Number(50);
-                $("#totalAmountIncludingShipping").html(`<span>$${number_format(totalAmount,2)}</span>`);
-                
-                
-
+                    totalAmount = Number(totalAmount) + Number(50);
+                    $("#totalAmountIncludingShipping").html(`<span>$${number_format(totalAmount,2)}</span>`);
 
                 });
-
-});
-
-
-
-// Create Order from Carts
-
-// get from card for userid
-// loop and call post! 
-// var newOrder = {
-//     userid: $("#orderuserid").val().trim(),
-//     productid: $("#productid").val().trim(),
-//     productquantity: $("#productquantity").val().trim()
-//   };
-
-//   console.log(newOrder);
-
-// $.ajax("/api/orders", {
-//     type: "POST",
-//     data: newOrder
-//   }).then(
-//     function() {
-//       console.log("New Order created!");
-//       location.reload(); // Reload the page to get the updated list
-//     }
-//   );
+    });
 
 });
 
@@ -90,3 +65,29 @@ function number_format(val, decimals){
     //of decimal places and return it.
     return val.toFixed(decimals);
 }
+
+function addOrder(userid, productid, productquantity){
+    const newOrder={ 
+        userid: userid,
+        productid: productid,
+        productquantity: productquantity
+      };
+    
+      //console.log(newOrder);
+    
+      // Send the POST request.
+      $.ajax("/api/orders", {
+        type: "POST",
+        data: newOrder
+      }).then(
+        function() {
+          console.log("New Order created!");
+        }
+      );
+}
+
+$("#proceedtopayment").on("click", function(event) {
+    // Make sure to preventDefault on a submit event.
+    event.preventDefault();
+    location.href="/payment.html"
+});

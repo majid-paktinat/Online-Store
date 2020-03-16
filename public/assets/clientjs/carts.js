@@ -15,11 +15,11 @@ $.get( `/api/cartFields` ).then(function(response){
 //Send the GET request
 $.get( `/api/cart/${document.getElementById('hiduserid').value}` ).then(function(response){
   // GET all records inside the "Cart Entiry" for the specific userid
-  console.log("responseXDE");
-  console.log(document.getElementById('hiduserid').value);
-  console.log(response);
-  console.log(response[0]);
-
+  
+  // console.log("response XDE");
+  // console.log(document.getElementById('hiduserid').value);
+  // console.log(response);
+  
   
   let totalAmount = 0;
   for (i=response.length; i>0; i--){

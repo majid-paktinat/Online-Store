@@ -3,7 +3,7 @@ $(function() {
 
     //Send the GET request
     $.get( `/api/products/${9}` ).then(function(response){
-        console.log( `productList: `, response);
+        // console.log( `productList: `, response);
         document.getElementById('hiduserid').value = 'majidpak';
         document.getElementById('hidproductid').value = response.productid;
 
@@ -30,7 +30,7 @@ $(function() {
         }).then(
           function(data) {
             console.log("New item added to cart!");
-            console.log(data);
+            // console.log(data);
             location.href="/cart.html"
           }
         );
