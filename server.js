@@ -2,10 +2,11 @@ var express = require("express");
 
 var PORT = process.env.PORT || 8080;
 
+require('dotenv').config(); // Loads environment variables from a .env file into the process.env variable
+
 var app = express();
 
-
-const stripe = require("stripe")("sk_test_wbWNboZHsbmstdCM8rJTV73z00aI3ypdUI");//require("stripe")(process.env.STRIPE_SECRET_KEY);
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
