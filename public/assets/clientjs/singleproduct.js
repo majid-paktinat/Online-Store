@@ -3,7 +3,7 @@ $(function() {
 
     //Send the GET request
     $.get( `/api/products/${getQueryStringValue("pid")}` ).then(function(response){
-        console.log( "`userid: `, response");
+        // console.log( `userid: `, (sessionStorage.getItem("online-userId")) ? sessionStorage.getItem("online-userId") : localStorage.getItem("online-userId"));
         document.getElementById('hiduserid').value = (sessionStorage.getItem("online-userId")) ? sessionStorage.getItem("online-userId") : localStorage.getItem("online-userId"); //'majidpak';
         document.getElementById('hidproductid').value = response.productid;
 

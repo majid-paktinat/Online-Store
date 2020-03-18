@@ -37,7 +37,7 @@ router.post("/api/carts", function(req, res) {
   cart.insertCart(req.body.userid, req.body.productid, req.body.productquantity, function(result) {
     console.log("'/api/carts' writes cartFields...");
     cartFields = {USERID:req.body.userid, PRODUCTID:req.body.productid, PRODUCTQUANTITY:req.body.productquantity};
-    res.json({ id: result.insertId });// Send back the ID of the new cart
+    res.json({ id: result.insertId });// Send back the ID of the new cart 
   });
 }); 
 

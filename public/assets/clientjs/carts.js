@@ -1,7 +1,7 @@
 // bootcamp
 $(function() {
 
-
+storageUser = (sessionStorage.getItem("online-userId")) ? sessionStorage.getItem("online-userId") : localStorage.getItem("online-userId");
 
 //Send the GET request
 $.get( `/api/cartFields` ).then(function(response){
@@ -9,12 +9,13 @@ $.get( `/api/cartFields` ).then(function(response){
     document.getElementById('hiduserid').value = response.USERID;
     document.getElementById('hidproductid').value = response.PRODUCTID;
     document.getElementById('hidproductquantity').value = response.PRODUCTQUANTITY;
-    //console.log(response.USERID);  // agar direct az addressbar biyad too cart.html ina empty hastan... (bayad control konim!)
-
+    
+    console.log(response.USERID);  // agar direct az addressbar biyad too cart.html ina empty hastan... (bayad control konim!)
+    console.log(storageUser);
 
 // GET all records inside the "Cart Entiry" for the specific userid
 //$.get( `/api/cart/${document.getElementById('hiduserid').value}` ).then(function(response){
-  $.get( `/api/cart/majidpak` ).then(function(response){
+  $.get( `/api/cart/${storageUser}` ).then(function(response){
 
 
   
@@ -23,6 +24,7 @@ $.get( `/api/cartFields` ).then(function(response){
   // console.log(response);
   
   let totalAmount = 0;
+  console.log(response);
   for (i=response.length; i>0; i--){
     let totalRow = 0;
     tbodyStr = ` <tr>

@@ -226,7 +226,7 @@ var ormCart = {
     });
   },
   selectCart: function(userid, callback) {
-    var s = "SELECT carts.id as cartid, products.id as productid, carts.userid as userid, products.productname, products.productprice, products.productimage, productquantity FROM " + this.tableName + " INNER JOIN products ON carts.productid=products.id WHERE carts.userid = ?";
+    var s = "SELECT carts.id as cartid, products.id as productid, carts.userid as userid, products.productname, products.productprice, products.productimage, SUM(productquantity) as productquantity FROM " + this.tableName + " INNER JOIN products ON carts.productid=products.id WHERE carts.userid = ? GROUP BY productid";
 
     connection.query(s, [userid], function(err, result) {
       callback(result);
@@ -235,10 +235,24 @@ var ormCart = {
   // Here our ORM is creating a simple method to execute the necessary MySQL commands in the controllers,
   // Again, we make use of the callback to grab a specific character from the database.
   insertCart: function(userid, productid, productquantity, callback) {
-    var s = "INSERT INTO " + this.tableName + "(userid, productid, productquantity) VALUES(?, ?, ?)";
-    connection.query(s, [userid, productid, productquantity], function(err, result) {
-      callback(result);
+    var q=0;
+    var s = "select productquantity from "+ this.tableName + " WHERE userid=? and productid=?";
+    connection.query(s, [userid, productid], function(err, result) {
+      if (result[0]) {
+          q = Number(result[0].productquantity) + Number(productquantity); 
+          s = "UPDATE carts SET productquantity=? WHERE userid=? and productid=?";
+          connection.query(s, [q, userid, productid], function(err, result) {
+            // callback(result);
+          });
+        }
+      else {
+          s = "INSERT INTO carts(userid, productid, productquantity) VALUES(?, ?, ?)";
+          connection.query(s, [userid, productid, productquantity], function(err, result) {
+            // callback(result);
+          });
+        }
     });
+    callback("");
   },
 
   // Here our ORM is creating a simple method to execute the necessary MySQL commands in the controllers,

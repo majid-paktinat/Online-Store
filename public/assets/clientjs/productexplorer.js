@@ -4,8 +4,6 @@ $(function() {
 
     //Send the GET request
     $.get( `/api/products/bycategory/${getQueryStringValue("categoryname")}` ).then(function(response){ 
-        // cateogoryId (how to read querystring)
-        
         console.log(response);
         document.getElementById('categoryName').innerHTML = `<h1>${response[0].categoryname}</h1>`;
 
