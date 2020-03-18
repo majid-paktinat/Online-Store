@@ -3,8 +3,8 @@ $(function() {
 
     //Send the GET request
     $.get( `/api/products/${getQueryStringValue("pid")}` ).then(function(response){
-        // console.log( `productList: `, response);
-        document.getElementById('hiduserid').value = 'majidpak';
+        console.log( "`userid: `, response");
+        document.getElementById('hiduserid').value = (sessionStorage.getItem("online-userId")) ? sessionStorage.getItem("online-userId") : localStorage.getItem("online-userId"); //'majidpak';
         document.getElementById('hidproductid').value = response.productid;
 
         document.getElementById('productdescription').innerHTML = `<p>${response.productdescription}</p>`;
