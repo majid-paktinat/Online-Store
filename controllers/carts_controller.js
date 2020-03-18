@@ -31,9 +31,6 @@ router.get("/api/cart/:userid", function(req, res) {
   cart.selectCart(userid, function(data) {
     res.send(data);
   });
-
-
-  //res.send(cartFields); 
 });
 
 router.post("/api/carts", function(req, res) {

@@ -201,8 +201,16 @@ var ormProduct = {
     connection.query(s, [id], function(err, result) {
       callback(result);
     });
-  }
+  }, 
   
+  selectProductsByCategoryName: function(Categoryname, callback) {
+    var s = "SELECT P.id as productid, P.productname, P.productdescription, P.productimage, P.productprice, P.categoryid, C.categoryname as categoryname FROM " + this.tableName + " as P inner join categories as C on P.categoryid = C.id WHERE categoryname=?";
+    connection.query(s, [Categoryname], function(err, result) {
+      callback(result);
+    });
+  }
+
+
 };
 
 var ormCart = {
@@ -256,7 +264,7 @@ var ormCart = {
     connection.query(s, [cartid], function(err, result) {
       callback(result);
     });
-  }
+  } 
   
 };
 

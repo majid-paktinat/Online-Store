@@ -2,6 +2,7 @@
 $(function() {
 
 // since this page has already been loginRequired(true)!
+// hide the box incluing usename password and submit button
 document.getElementById("customerlogin").style.display='none'; 
 
     //Send the GET request

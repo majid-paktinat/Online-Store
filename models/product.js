@@ -27,6 +27,11 @@ var product = {
       ormProduct.deleteProduct(id, function(result) {
         callback(result); 
       });
+    },
+    selectProductsByCategoryName: function(Categoryname, callback) {
+      ormProduct.selectProductsByCategoryName(Categoryname, function(result) {
+        callback(result);
+      });
     }
   };
   

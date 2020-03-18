@@ -2,7 +2,7 @@
 $(function() {
 
     //Send the GET request
-    $.get( `/api/products/${8}` ).then(function(response){
+    $.get( `/api/products/${getQueryStringValue("pid")}` ).then(function(response){
         // console.log( `productList: `, response);
         document.getElementById('hiduserid').value = 'majidpak';
         document.getElementById('hidproductid').value = response.productid;
@@ -10,7 +10,7 @@ $(function() {
         document.getElementById('productdescription').innerHTML = `<p>${response.productdescription}</p>`;
         document.getElementById('productname').innerHTML = `<h3>${response.productname}</h3>`; 
         document.getElementById('productprice').innerHTML = `<h2>$${response.productprice}</h2>`; 
-        document.getElementById('productimage').setAttribute("src", "/assets/img/Sofas/Bel-Air+Sofa.jpg"); 
+        document.getElementById('productimage').setAttribute("src", `${response.productimage}`); 
       });
 
       $("#addtocart").on("click", function(event) {
@@ -37,3 +37,8 @@ $(function() {
       });
 
 });
+
+
+function getQueryStringValue (key) {  
+  return decodeURIComponent(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + encodeURIComponent(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));  
+}  

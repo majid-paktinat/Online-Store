@@ -55,5 +55,13 @@ router.delete("/api/products/delete/:id", function(req, res) {     //ok
   });
 });
 
+router.get("/api/products/bycategory/:categoryname", function(req, res) {
+  console.log("inside /api/products/bycategory/:categoryname");
+  const categoryname = req.params.categoryname;
+  product.selectProductsByCategoryName(categoryname, function(data) {
+    res.send(data);
+  });
+});
+
 // Export routes for server.js to use.
 module.exports = router;
