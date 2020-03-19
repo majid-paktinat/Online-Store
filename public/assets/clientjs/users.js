@@ -4,6 +4,7 @@ $(function() {
   $("#createbutton").on("click", function(event) {
     // Make sure to preventDefault on a click event.
     event.preventDefault();
+    alertBox.style.display="none";
 
     var newUser = {
       userid: $("#username").val().trim(),
