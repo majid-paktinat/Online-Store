@@ -20,6 +20,7 @@ router.get("/api/users", function(req, res) {
 router.post("/api/users", function(req, res) {
   user.insertUser(req.body.userid, util.passHash(req.body.userpassword), req.body.userfname, req.body.userlname, req.body.userrole, req.body.useremail, req.body.userphone, req.body.useraddress, function(result) {
     res.json((!result.insertId)?"exist":result.insertId); // Send back the ID of the new user
+    //res.send({ message: `Thank you, ${(!result.insertId)?"exist":result.insertId}` })
   });
 });
 

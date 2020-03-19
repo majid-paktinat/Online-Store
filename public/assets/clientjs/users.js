@@ -21,13 +21,13 @@ $(function() {
     }).then(
       function(data) {
         if(data=='exist'){
-          console.log("already-exist");
+          // console.log("already-exist");
+          alertBox.classList.add('alert-success');
+          alertBox.style.display="block";alertBox.innerHTML = 'User already exist, with this username - please try another one!';alertBox.classList.remove('alert-success');alertBox.classList.add('alert-warning');
         } else {
-        alertBox.classList.add('alert-success');
-        console.log(data);
-        console.log("New User created!");
-        //location.reload(); // Reload the page to get the updated list
-        alertBox.style.display="block";alertBox.innerHTML = 'Account Created Successfully!';alertBox.classList.remove('alert-success');alertBox.classList.add('alert-warning');
+          // console.log("New User created!");
+          alert( `Thank you, User created successfully! ` );
+          location.href="/login.html"
       }
     }
     );
