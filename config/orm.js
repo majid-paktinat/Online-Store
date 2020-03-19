@@ -44,9 +44,17 @@ var ormUser = {
   // Here our ORM is creating a simple method to execute the necessary MySQL commands in the controllers,
   // Again, we make use of the callback to grab a specific character from the database.
   insertUser: function(userid, userpassword, userfname, userlname, userrole, useremail, userphone, useraddress, callback) {
-    var s = "INSERT INTO " + this.tableName + "(userid, userpassword, userfname, userlname, userrole, useremail, userphone, useraddress) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
-    connection.query(s, [userid, userpassword, userfname, userlname, userrole, useremail, userphone, useraddress], function(err, result) {
-      callback(result);
+    var s = "SELECT * FROM " + this.tableName + " WHERE userid=?"
+    connection.query(s, [userid], function(err, result) {
+      if (result.length == 0) { 
+        s = "INSERT INTO " + " users " + "(userid, userpassword, userfname, userlname, userrole, useremail, userphone, useraddress) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+        connection.query(s, [userid, userpassword, userfname, userlname, userrole, useremail, userphone, useraddress], function(err, resultInsert) {
+          callback(resultInsert);
+        });
+      }
+      else { 
+        callback(result);
+      }
     });
   },
 

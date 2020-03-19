@@ -20,12 +20,16 @@ $(function() {
       data: newUser
     }).then(
       function(data) {
+        if(data=='exist'){
+          console.log("already-exist");
+        } else {
         alertBox.classList.add('alert-success');
         console.log(data);
         console.log("New User created!");
         //location.reload(); // Reload the page to get the updated list
         alertBox.style.display="block";alertBox.innerHTML = 'Account Created Successfully!';alertBox.classList.remove('alert-success');alertBox.classList.add('alert-warning');
       }
+    }
     );
   });
 
