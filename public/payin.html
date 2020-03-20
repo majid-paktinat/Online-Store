@@ -14,6 +14,11 @@
   </head>
 
   <body>
+    <script>
+      if (!(sessionStorage.getItem("online-userId") || localStorage.getItem("online-userId"))) {
+      location.href="/login.html" 
+    }
+    </script>
     <div class="sr-root">
       <div class="sr-main">
         <form id="payment-form" class="sr-payment-form">
