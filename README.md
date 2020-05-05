@@ -1,39 +1,5 @@
 # Online-Store Project
 
-## Application Requirements
-
-* Must use a Node and Express server
-
-* Must be backed by a MySQL database and an ORM (not necessarily Sequelize)
-
-* Must utilize both GET and POST routes for retrieving and adding new data
-
-* Must be deployed using Heroku (with data)
-
-* Must utilize at least one new third-party API
-
-* Must have a polished UI
-
-* Must follow MVC paradigm
-
-* Must meet good quality coding standards (indentation, scoping, naming)
-
-* Must use Handlebars.js
-
-
-## Presentation Requirements
-
-Use this [project presentation template](https://docs.google.com/presentation/d/1_u8TKy5zW5UlrVQVnyDEZ0unGI2tjQPDEpA0FNuBKAw/edit?usp=sharing) to address the following: 
-
-* Elevator pitch: a one minute description of your application
-
-* Concept: What is your user story? What was your motivation for development?
-
-* Process: What were the technologies used? How were tasks and roles broken down and assigned? What challenges did you encounter? What were your successes?
-
-* Directions for Future Development
-
-
 #### App Setup
 
 1. Create a GitHub repo called `online-store` and clone it to your computer.
@@ -138,6 +104,14 @@ Use this [project presentation template](https://docs.google.com/presentation/d/
 
      * Create a button in `index.handlebars` that will submit the user input into the database.
 
+
+## Application Requirements
+
+* Used Node and Express server
+* Used MVC paradigm
+* Used MySQL database and own customized ORM 
+* Deployed on Heroku 
+
 #### Directory structure
 
 All the recommended files and directories from the steps above should look like the following structure:
@@ -149,6 +123,7 @@ All the recommended files and directories from the steps above should look like 
 │   └── orm.js
 │ 
 ├── controllers
+│    └── carts_controller.js
 │   └── users_controller.js
 │   └── products_controller.js
 │   └── categories_controller.js
@@ -159,6 +134,7 @@ All the recommended files and directories from the steps above should look like 
 │   └── seeds.sql
 │
 ├── models
+│   └── cart.js
 │   └── user.js
 │   └── product.js
 │   └── category.js
@@ -187,8 +163,10 @@ All the recommended files and directories from the steps above should look like 
 └── views
     ├── index.handlebars
     │
+    │
     └── layouts
-         └── main.handlebars
+    │    └── main.handlebars
+    │── ...     
     
 
 ```
