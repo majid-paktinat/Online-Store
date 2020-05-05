@@ -110,7 +110,7 @@
 * Used Node and Express server
 * Used MVC paradigm
 * Used MySQL database and own customized ORM 
-* Deployed on Heroku 
+* Deployed on Heroku (https://bootcamp-onlinestore.herokuapp.com/)
 
 #### Directory structure
 
@@ -147,6 +147,7 @@ All the recommended files and directories from the steps above should look like 
 ├── public
 │   └── assets
 │       ├── css
+│       │    └── cart_style.css
 │       │    └── user_style.css
 │       │    └── product_style.css
 │       │    └── category_style.css
